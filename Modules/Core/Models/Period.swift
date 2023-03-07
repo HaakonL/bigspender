@@ -1,0 +1,22 @@
+//
+//  Week.swift
+//  Core
+//
+//  Created by Haakon Langaas Lageng on 09/01/2023.
+//
+
+import Foundation
+
+public struct Period {
+	public let id: String
+	public let periodStart: Date
+	public let periodEnd: Date
+	public let amountAvailable: Decimal
+	
+	public init(id: String, periodStart: Date, periodEnd: Date, amountAvailable: Decimal) {
+		self.id = id
+		self.periodStart = periodStart
+		self.periodEnd = periodEnd
+		self.amountAvailable = amountAvailable
+	}
+}

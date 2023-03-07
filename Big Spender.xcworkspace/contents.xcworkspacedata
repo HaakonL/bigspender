@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:UI/iOSApp/iOSApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Modules/Core/Core.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Modules/Services/Services.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Modules/Persistence/Persistence.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:UI/iOSApp/../../Modules/FirestoreInstance/FirestoreInstance.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Modules/Bootstrap/Bootstrap.xcodeproj">
+   </FileRef>
+</Workspace>
