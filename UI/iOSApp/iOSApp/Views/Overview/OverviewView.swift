@@ -12,7 +12,7 @@ import Core
 
 struct OverviewView: View {
 	@ObservedObject private var viewModel: OverviewViewModel = Resolver.resolve()
-	@State private var showAddPurchase = false
+	@Binding var showAddPurchase: Bool
 	let mainChartHeight: CGFloat = 180
 	
     var body: some View {
@@ -51,7 +51,7 @@ struct SpendingView_Previews: PreviewProvider {
     static var previews: some View {
 		ZStack {
 			Color.darkBlue.ignoresSafeArea()
-			OverviewView()
+			OverviewView(showAddPurchase: .constant(false))
 		}
     }
 }

@@ -11,7 +11,7 @@ import Resolver
 
 struct RootView: View {
 	@State var isOnboarding = !AuthViewModel.isUserLoggedIn()
-	@State var showAddPurchaseView = false
+	@State var showAddPurchase = false
 	
     var body: some View {
 		ZStack {
@@ -19,10 +19,10 @@ struct RootView: View {
 			
 			VStack(spacing: 0) {
 				HeaderBar()
-				OverviewView()
+				OverviewView(showAddPurchase: $showAddPurchase)
 			}
 		}
-		.sheet(isPresented: $showAddPurchaseView) {
+		.sheet(isPresented: $showAddPurchase) {
 			AddPurchaseView()
 		}		
 		/*.fullScreenCover(isPresented: $isOnboarding) {

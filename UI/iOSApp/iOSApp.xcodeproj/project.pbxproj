@@ -41,7 +41,6 @@
 		F8704AD929B496AC00063653 /* DecimalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704AD829B496AC00063653 /* DecimalExtensions.swift */; };
 		F8704ADB29B49C3900063653 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704ADA29B49C3900063653 /* DateExtensions.swift */; };
 		F8704ADD29B4A01300063653 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704ADC29B4A01300063653 /* ChartData.swift */; };
-		F8764DA929A7E6A100E04D4A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8764DA829A7E6A100E04D4A /* GoogleService-Info.plist */; };
 		F8886274298712730000B0E9 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8886273298712730000B0E9 /* Main.swift */; };
 		F8886276298712730000B0E9 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8886275298712730000B0E9 /* RootView.swift */; };
 		F8886278298712740000B0E9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8886277298712740000B0E9 /* Assets.xcassets */; };
@@ -53,6 +52,7 @@
 		F88862A2298713240000B0E9 /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = F88862A1298713240000B0E9 /* Resolver */; };
 		F88862A52987148A0000B0E9 /* Bootstrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88862A42987148A0000B0E9 /* Bootstrap.framework */; };
 		F88862A62987148A0000B0E9 /* Bootstrap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F88862A42987148A0000B0E9 /* Bootstrap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8C1BDFF29B9BEE60095BEAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8C1BDFE29B9BEE60095BEAA /* GoogleService-Info.plist */; };
 		F8E32D1329B54A2000D8C4B9 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1229B54A2000D8C4B9 /* TagsView.swift */; };
 		F8E32D1629B54AA700D8C4B9 /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = F8E32D1529B54AA700D8C4B9 /* WrappingStack */; };
 		F8E32D1929B632CF00D8C4B9 /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1829B632CF00D8C4B9 /* HeaderBar.swift */; };
@@ -61,9 +61,9 @@
 		F8E32D2229B7087F00D8C4B9 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2129B7087F00D8C4B9 /* PieChartView.swift */; };
 		F8E32D2429B70A0900D8C4B9 /* SectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2329B70A0900D8C4B9 /* SectorView.swift */; };
 		F8E32D2629B70C2800D8C4B9 /* MainChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2529B70C2800D8C4B9 /* MainChartView.swift */; };
-		F8E32D2929B7106100D8C4B9 /* AddTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2829B7106100D8C4B9 /* AddTransactionView.swift */; };
+		F8E32D2929B7106100D8C4B9 /* AddPurchaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2829B7106100D8C4B9 /* AddPurchaseView.swift */; };
 		F8E32D2B29B7109100D8C4B9 /* InfoBoxesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2A29B7109100D8C4B9 /* InfoBoxesView.swift */; };
-		F8E32D2D29B711A000D8C4B9 /* AddTransactionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2C29B711A000D8C4B9 /* AddTransactionButton.swift */; };
+		F8E32D2D29B711A000D8C4B9 /* AddPurchaseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2C29B711A000D8C4B9 /* AddPurchaseButton.swift */; };
 		F8E32D2F29B7127F00D8C4B9 /* TextualStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2E29B7127F00D8C4B9 /* TextualStatusView.swift */; };
 		F8E32D3129B714C000D8C4B9 /* ForecastChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D3029B714C000D8C4B9 /* ForecastChartView.swift */; };
 		F8E32D3329B715DB00D8C4B9 /* DailyChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D3229B715DB00D8C4B9 /* DailyChartView.swift */; };
@@ -141,7 +141,6 @@
 		F8704AD829B496AC00063653 /* DecimalExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalExtensions.swift; sourceTree = "<group>"; };
 		F8704ADA29B49C3900063653 /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		F8704ADC29B4A01300063653 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
-		F8764DA829A7E6A100E04D4A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8886270298712730000B0E9 /* iOSApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8886273298712730000B0E9 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		F8886275298712730000B0E9 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
@@ -154,6 +153,7 @@
 		F8886290298712740000B0E9 /* iOSAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		F888629D298712980000B0E9 /* Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
 		F88862A42987148A0000B0E9 /* Bootstrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bootstrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C1BDFE29B9BEE60095BEAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F8E32D1229B54A2000D8C4B9 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
 		F8E32D1829B632CF00D8C4B9 /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
 		F8E32D1B29B6398F00D8C4B9 /* PeriodNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodNavigator.swift; sourceTree = "<group>"; };
@@ -161,9 +161,9 @@
 		F8E32D2129B7087F00D8C4B9 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
 		F8E32D2329B70A0900D8C4B9 /* SectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorView.swift; sourceTree = "<group>"; };
 		F8E32D2529B70C2800D8C4B9 /* MainChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainChartView.swift; sourceTree = "<group>"; };
-		F8E32D2829B7106100D8C4B9 /* AddTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionView.swift; sourceTree = "<group>"; };
+		F8E32D2829B7106100D8C4B9 /* AddPurchaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseView.swift; sourceTree = "<group>"; };
 		F8E32D2A29B7109100D8C4B9 /* InfoBoxesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoBoxesView.swift; sourceTree = "<group>"; };
-		F8E32D2C29B711A000D8C4B9 /* AddTransactionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionButton.swift; sourceTree = "<group>"; };
+		F8E32D2C29B711A000D8C4B9 /* AddPurchaseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPurchaseButton.swift; sourceTree = "<group>"; };
 		F8E32D2E29B7127F00D8C4B9 /* TextualStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextualStatusView.swift; sourceTree = "<group>"; };
 		F8E32D3029B714C000D8C4B9 /* ForecastChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastChartView.swift; sourceTree = "<group>"; };
 		F8E32D3229B715DB00D8C4B9 /* DailyChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyChartView.swift; sourceTree = "<group>"; };
@@ -223,8 +223,9 @@
 			isa = PBXGroup;
 			children = (
 				F8E32D1729B632BC00D8C4B9 /* Global */,
-				F858F7E829990A3900EDC251 /* Overview */,
 				F858F79F299457E200EDC251 /* Onboarding */,
+				F858F7E829990A3900EDC251 /* Overview */,
+				F8C1BDFD29B9BE190095BEAA /* Purchase */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -351,8 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				F8704AAC29B38C0500063653 /* Fonts */,
-				F8764DA829A7E6A100E04D4A /* GoogleService-Info.plist */,
 				F8E551CB298E4CA500F9E367 /* Info.plist */,
+				F8C1BDFE29B9BEE60095BEAA /* GoogleService-Info.plist */,
 				F8886277298712740000B0E9 /* Assets.xcassets */,
 				F8886279298712740000B0E9 /* Preview Content */,
 			);
@@ -368,6 +369,14 @@
 				F88862A42987148A0000B0E9 /* Bootstrap.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F8C1BDFD29B9BE190095BEAA /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				F8E32D2829B7106100D8C4B9 /* AddPurchaseView.swift */,
+			);
+			path = Purchase;
 			sourceTree = "<group>";
 		};
 		F8E32D1729B632BC00D8C4B9 /* Global */ = {
@@ -405,10 +414,9 @@
 		F8E32D2729B70F7200D8C4B9 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F8E32D2C29B711A000D8C4B9 /* AddPurchaseButton.swift */,
 				F8E32D2A29B7109100D8C4B9 /* InfoBoxesView.swift */,
 				F8E32D1229B54A2000D8C4B9 /* TagsView.swift */,
-				F8E32D2829B7106100D8C4B9 /* AddTransactionView.swift */,
-				F8E32D2C29B711A000D8C4B9 /* AddTransactionButton.swift */,
 				F8E32D2E29B7127F00D8C4B9 /* TextualStatusView.swift */,
 			);
 			path = Components;
@@ -543,7 +551,7 @@
 				F8704ACD29B38C2700063653 /* Inter-Regular.ttf in Resources */,
 				F8704ABF29B38C2700063653 /* Inter-BoldItalic.ttf in Resources */,
 				F8704AC929B38C2700063653 /* Inter-MediumItalic.ttf in Resources */,
-				F8764DA929A7E6A100E04D4A /* GoogleService-Info.plist in Resources */,
+				F8C1BDFF29B9BEE60095BEAA /* GoogleService-Info.plist in Resources */,
 				F8704AD029B38C2700063653 /* Inter-ExtraLightItalic-BETA.ttf in Resources */,
 				F8704AC729B38C2700063653 /* Inter-ExtraLight-BETA.ttf in Resources */,
 				F8704AC029B38C2700063653 /* Inter-Light-BETA.ttf in Resources */,
@@ -573,7 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8E32D3129B714C000D8C4B9 /* ForecastChartView.swift in Sources */,
-				F8E32D2D29B711A000D8C4B9 /* AddTransactionButton.swift in Sources */,
+				F8E32D2D29B711A000D8C4B9 /* AddPurchaseButton.swift in Sources */,
 				F8E32D3529B7164800D8C4B9 /* TagChartView.swift in Sources */,
 				F8E32D2229B7087F00D8C4B9 /* PieChartView.swift in Sources */,
 				F8E32D1C29B6398F00D8C4B9 /* PeriodNavigator.swift in Sources */,
@@ -583,7 +591,7 @@
 				F858F7982994520400EDC251 /* OnboardingViewModel.swift in Sources */,
 				F8704ADD29B4A01300063653 /* ChartData.swift in Sources */,
 				F858F7EA29990A5500EDC251 /* OverviewViewModel.swift in Sources */,
-				F8E32D2929B7106100D8C4B9 /* AddTransactionView.swift in Sources */,
+				F8E32D2929B7106100D8C4B9 /* AddPurchaseView.swift in Sources */,
 				F8886276298712730000B0E9 /* RootView.swift in Sources */,
 				F8704AD729B4770D00063653 /* ColorExtensions.swift in Sources */,
 				F8E32D2F29B7127F00D8C4B9 /* TextualStatusView.swift in Sources */,
