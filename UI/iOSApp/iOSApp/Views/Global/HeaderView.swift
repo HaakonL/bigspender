@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-struct HeaderBar: View {
+struct HeaderView: View {
 	@State var showSettingsModal = false
 	@State var showMenuModal = false
 	
@@ -28,10 +28,14 @@ struct HeaderBar: View {
 				
 				Spacer()
 				
-				Text("Big Spender")
-					.font(AppFont.titleBold)
-					.foregroundColor(.lightBlue)
-				
+				FidgetTextView("Big Spender",
+							   font: AppFont.appLogoType,
+							   fontSize: 28,
+							   dist0Color: Color.regularOrange,
+							   dist1Color: Color.lightOrange,
+							   defaultColor: Color.lightBlue
+				)
+								
 				Spacer()
 				
 				Button(action: {
@@ -79,12 +83,12 @@ struct HeaderBar: View {
 	}
 }
 
-struct HeaderBarBar_Previews: PreviewProvider {
+struct HeaderView_Previews: PreviewProvider {
 	static var previews: some View {
 		ZStack {
 			Color.darkBlue.ignoresSafeArea()
 			VStack(spacing: 0) {
-				HeaderBar()
+				HeaderView()
 				Spacer()
 			}
 		}

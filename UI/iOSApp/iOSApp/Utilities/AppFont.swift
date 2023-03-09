@@ -27,6 +27,10 @@ class InterFont {
 
 class AppFont {
 
+	public static var appLogoType: Font {
+		return .system(size: 40, weight: .bold, design: .rounded)
+	}
+	
 	public static var largeTitle: Font {
 		return Font.custom(InterFont.medium, size: 32)
 	}

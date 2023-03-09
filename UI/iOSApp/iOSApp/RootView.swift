@@ -18,7 +18,7 @@ struct RootView: View {
 			Color.darkBlue.ignoresSafeArea()
 			
 			VStack(spacing: 0) {
-				HeaderBar()
+				HeaderView()
 				OverviewView(showAddPurchase: $showAddPurchase)
 			}
 		}

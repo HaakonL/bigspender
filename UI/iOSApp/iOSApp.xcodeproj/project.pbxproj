@@ -53,9 +53,11 @@
 		F88862A52987148A0000B0E9 /* Bootstrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F88862A42987148A0000B0E9 /* Bootstrap.framework */; };
 		F88862A62987148A0000B0E9 /* Bootstrap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F88862A42987148A0000B0E9 /* Bootstrap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8C1BDFF29B9BEE60095BEAA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F8C1BDFE29B9BEE60095BEAA /* GoogleService-Info.plist */; };
+		F8C1BE0129BA37F70095BEAA /* FidgetTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1BE0029BA37F70095BEAA /* FidgetTextView.swift */; };
+		F8C1BE0329BA38620095BEAA /* HapticManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C1BE0229BA38620095BEAA /* HapticManager.swift */; };
 		F8E32D1329B54A2000D8C4B9 /* TagsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1229B54A2000D8C4B9 /* TagsView.swift */; };
 		F8E32D1629B54AA700D8C4B9 /* WrappingStack in Frameworks */ = {isa = PBXBuildFile; productRef = F8E32D1529B54AA700D8C4B9 /* WrappingStack */; };
-		F8E32D1929B632CF00D8C4B9 /* HeaderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1829B632CF00D8C4B9 /* HeaderBar.swift */; };
+		F8E32D1929B632CF00D8C4B9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1829B632CF00D8C4B9 /* HeaderView.swift */; };
 		F8E32D1C29B6398F00D8C4B9 /* PeriodNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1B29B6398F00D8C4B9 /* PeriodNavigator.swift */; };
 		F8E32D2029B7082E00D8C4B9 /* SectorShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D1F29B7082E00D8C4B9 /* SectorShape.swift */; };
 		F8E32D2229B7087F00D8C4B9 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E32D2129B7087F00D8C4B9 /* PieChartView.swift */; };
@@ -154,8 +156,10 @@
 		F888629D298712980000B0E9 /* Bootstrap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bootstrap.swift; sourceTree = "<group>"; };
 		F88862A42987148A0000B0E9 /* Bootstrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bootstrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8C1BDFE29B9BEE60095BEAA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F8C1BE0029BA37F70095BEAA /* FidgetTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FidgetTextView.swift; sourceTree = "<group>"; };
+		F8C1BE0229BA38620095BEAA /* HapticManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticManager.swift; sourceTree = "<group>"; };
 		F8E32D1229B54A2000D8C4B9 /* TagsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsView.swift; sourceTree = "<group>"; };
-		F8E32D1829B632CF00D8C4B9 /* HeaderBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBar.swift; sourceTree = "<group>"; };
+		F8E32D1829B632CF00D8C4B9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		F8E32D1B29B6398F00D8C4B9 /* PeriodNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodNavigator.swift; sourceTree = "<group>"; };
 		F8E32D1F29B7082E00D8C4B9 /* SectorShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectorShape.swift; sourceTree = "<group>"; };
 		F8E32D2129B7087F00D8C4B9 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 				F8704AD629B4770D00063653 /* ColorExtensions.swift */,
 				F8704AD829B496AC00063653 /* DecimalExtensions.swift */,
 				F8704ADA29B49C3900063653 /* DateExtensions.swift */,
+				F8C1BE0229BA38620095BEAA /* HapticManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -382,8 +387,9 @@
 		F8E32D1729B632BC00D8C4B9 /* Global */ = {
 			isa = PBXGroup;
 			children = (
-				F8E32D1829B632CF00D8C4B9 /* HeaderBar.swift */,
+				F8E32D1829B632CF00D8C4B9 /* HeaderView.swift */,
 				F8E32D1B29B6398F00D8C4B9 /* PeriodNavigator.swift */,
+				F8C1BE0029BA37F70095BEAA /* FidgetTextView.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -585,6 +591,7 @@
 				F8E32D3529B7164800D8C4B9 /* TagChartView.swift in Sources */,
 				F8E32D2229B7087F00D8C4B9 /* PieChartView.swift in Sources */,
 				F8E32D1C29B6398F00D8C4B9 /* PeriodNavigator.swift in Sources */,
+				F8C1BE0329BA38620095BEAA /* HapticManager.swift in Sources */,
 				F8704AD429B3904300063653 /* FontWithLineHeight.swift in Sources */,
 				F8704ADB29B49C3900063653 /* DateExtensions.swift in Sources */,
 				F858F7932994509C00EDC251 /* AuthViewModel.swift in Sources */,
@@ -599,7 +606,7 @@
 				F8E32D2629B70C2800D8C4B9 /* MainChartView.swift in Sources */,
 				F858F7A729959D8F00EDC251 /* CreateProfileView.swift in Sources */,
 				F8704AAB29B38ABA00063653 /* AppFont.swift in Sources */,
-				F8E32D1929B632CF00D8C4B9 /* HeaderBar.swift in Sources */,
+				F8E32D1929B632CF00D8C4B9 /* HeaderView.swift in Sources */,
 				F858F79C2994543A00EDC251 /* PhoneNumberViewModel.swift in Sources */,
 				F8E32D2B29B7109100D8C4B9 /* InfoBoxesView.swift in Sources */,
 				F8704AD929B496AC00063653 /* DecimalExtensions.swift in Sources */,
@@ -615,6 +622,7 @@
 				F8E32D3329B715DB00D8C4B9 /* DailyChartView.swift in Sources */,
 				F8E551A6298D0EE500F9E367 /* PeriodViewModel.swift in Sources */,
 				F8E32D2429B70A0900D8C4B9 /* SectorView.swift in Sources */,
+				F8C1BE0129BA37F70095BEAA /* FidgetTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
