@@ -9,11 +9,11 @@ import Foundation
 import Resolver
 import Core
 
-class OverviewViewModel: ObservableObject {
+public class OverviewViewModel: ObservableObject {
 	@Injected private var periodService: PeriodServiceProtocol
 	@Published public private(set) var currentPeriod: Period?
 	
-	func loadPeriod() async {
+	public func loadPeriod() async {
 		if let period = await periodService.getPeriod(by: Date()) {
 			DispatchQueue.main.async {
 				self.currentPeriod = period
@@ -21,22 +21,22 @@ class OverviewViewModel: ObservableObject {
 		}
 	}
 	
-	func getProjectedResult(budget: Decimal, data: [ChartData]) -> [ChartData] {
+	public func getProjectedResult(budget: Int, data: [ChartData]) -> [ChartData] {
 		let currentDay = Calendar.current.dateComponents([.day], from: Date()).day!
 		let spentSoFar = data.map{ $0.spendings }.reduce(0, +)
-		let spentOnAverage = spentSoFar.int / currentDay
+		let spentOnAverage = spentSoFar / currentDay
 		
 		var newData = [ChartData]()
-		var reducedBudget = budget.int
+		var reducedBudget = budget
 		for dataPoint in data {
 			let calendarDate = Calendar.current.dateComponents([.day], from: dataPoint.day)
 			if let calendarDay = calendarDate.day, calendarDay > currentDay {
 				reducedBudget -= spentOnAverage
 			} else {
-				reducedBudget -= dataPoint.spendings.int
+				reducedBudget -= dataPoint.spendings
 			}
 			
-			newData.append(ChartData(day: dataPoint.day, spendings: Decimal(reducedBudget)))
+			newData.append(ChartData(day: dataPoint.day, spendings: reducedBudget))
 		}
 		
 		return newData

@@ -11,7 +11,7 @@ import Persistence
 import Resolver
 
 public class PeriodService: PeriodServiceProtocol {
-	private let repository: PeriodRepository = Resolver.resolve()
+	@Injected private var repository: PeriodRepository
 	
 	public init() {}
 	

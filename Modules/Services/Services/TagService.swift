@@ -11,7 +11,7 @@ import Persistence
 import Resolver
 
 public class TagService: TagServiceProtocol {
-	private let repository: TagRepository = Resolver.resolve()
+	@Injected private var repository: TagRepository
 	
 	public init() {}
 	

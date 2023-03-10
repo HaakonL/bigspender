@@ -13,7 +13,7 @@ public class PeriodDataModel: Codable {
 	@DocumentID public var id: String?
 	public var periodStart: Date
 	public var periodEnd: Date
-	public var amountAvailable: Decimal
+	public var amountAvailable: Int
 	
 	public init() {
 		self.periodStart = Date().start()

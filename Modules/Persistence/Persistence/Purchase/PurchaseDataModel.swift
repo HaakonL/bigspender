@@ -11,23 +11,23 @@ import FirebaseFirestoreSwift
 
 public class PurchaseDataModel: Codable {
 	@DocumentID var id: String?
-	public var amount: Decimal
+	public var amount: Int
 	public var title: String
 	public var when: Date
-	public var tags: [TagDataModel]
+	public var tags: [String]
 	
 	public init() {
 		self.amount = 0
 		self.title = ""
 		self.when = Date()
-		self.tags = [TagDataModel]()
+		self.tags = [String]()
 	}
 	
 	public init(_ model: Purchase) {
 		self.amount = model.amount
 		self.title = model.title
 		self.when = model.when
-		self.tags = model.tags.map { TagDataModel($0) }
+		self.tags = model.tags
 	}
 	
 	public func toDomainModel() -> Purchase {
@@ -36,7 +36,7 @@ public class PurchaseDataModel: Codable {
 			amount: amount,
 			title: title,
 			when: when,
-			tags: tags.map { $0.toDomainModel() }
+			tags: tags
 		)
 	}
 }

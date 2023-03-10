@@ -10,21 +10,21 @@ import Core
 import FirebaseFirestoreSwift
 
 public class TagDataModel: Codable {
-	@DocumentID public var id: String?
-	public var title: String
+	@DocumentID var id: String?
+	public var tag: String
 	
 	public init() {
-		title = ""
+		tag = ""
 	}
 	
 	public init(_ model: Tag) {
-		self.title = model.title
+		self.tag = model.tag
 	}
 	
 	public func toDomainModel() -> Tag {
 		return Tag(
 			id: id ?? UUID().uuidString,
-			title: title
+			tag: tag
 		)
 	}
 }

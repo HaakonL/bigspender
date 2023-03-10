@@ -11,7 +11,7 @@ import Persistence
 import Resolver
 
 public class PurchaseService: PurchaseServiceProtocol {
-	private let repository: PurchaseRepository = Resolver.resolve()
+	@Injected private var repository: PurchaseRepository
 	
 	public init() {}
 	

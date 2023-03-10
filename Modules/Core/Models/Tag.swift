@@ -9,10 +9,10 @@ import Foundation
 
 public struct Tag {
 	public let id: String
-	public let title: String
+	public let tag: String
 	
-	public init(id: String, title: String) {
+	public init(id: String, tag: String) {
 		self.id = id
-		self.title = title
+		self.tag = tag
 	}
 }

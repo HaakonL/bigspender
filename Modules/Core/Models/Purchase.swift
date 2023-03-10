@@ -9,12 +9,12 @@ import Foundation
 
 public struct Purchase: Identifiable {
 	public let id: String
-	public let amount: Decimal
+	public let amount: Int
 	public let title: String
 	public let when: Date
-	public let tags: [Tag]
+	public let tags: [String]
 	
-	public init(id: String, amount: Decimal, title: String, when: Date, tags: [Tag]) {
+	public init(id: String, amount: Int, title: String, when: Date, tags: [String]) {
 		self.id = id
 		self.amount = amount
 		self.title = title

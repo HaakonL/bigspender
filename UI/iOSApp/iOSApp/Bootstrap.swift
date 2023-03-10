@@ -19,5 +19,6 @@ extension Resolver: ResolverRegistering {
 		register { PeriodViewModel() }
 		register { OverviewViewModel() }
 		register { PhoneNumberViewModel() }
+		register { AddPurchaseViewModel() }
 	}
 }

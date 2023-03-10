@@ -7,13 +7,13 @@
 
 import Foundation
 
-class ChartData {
+public class ChartData {
 	var day: Date
-	var spendings: Decimal
+	var spendings: Int
 	var tag: String
 	var animate: Bool
 	
-	init(day: Date = Date(), spendings: Decimal = 0.0, tag: String = "", animate: Bool = false) {
+	init(day: Date = Date(), spendings: Int = 0, tag: String = "", animate: Bool = false) {
 		self.day = day
 		self.spendings = spendings
 		self.tag = tag
