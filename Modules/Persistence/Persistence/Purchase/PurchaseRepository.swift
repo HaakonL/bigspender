@@ -27,7 +27,9 @@ extension PurchaseRepository {
 			}
 			
 			for entry in entries {
-				documents.append(entry.toDomainModel())
+				if let purchase = entry.toDomainObject() as? Purchase {
+					documents.append(purchase)
+				}
 			}
 			
 			return .success(documents)
@@ -48,7 +50,9 @@ extension PurchaseRepository {
 			}
 			
 			for entry in entries {
-				documents.append(entry.toDomainModel())
+				if let purchase = entry.toDomainObject() as? Purchase {
+					documents.append(purchase)
+				}
 			}
 			
 			return .success(documents)
@@ -65,7 +69,7 @@ extension PurchaseRepository {
 			try db.write {
 				db.add(dataModel)
 			}
-			return .success(dataModel.toDomainModel())
+			return .success(dataModel.toDomainObject() as? Purchase)
 		} catch(let error) {
 			return .failure(error)
 		}

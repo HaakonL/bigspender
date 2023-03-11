@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Period {
+public struct Period: DomainObject {
 	public let id: String?
 	public let periodStart: Date
 	public let periodEnd: Date

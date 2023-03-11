@@ -21,7 +21,9 @@ extension TagRepository {
 			let db = try await Realm()
 			var documents = [Tag]()
 			for document in db.objects(TagDataModel.self).enumerated() {
-				documents.append(document.element.toDomainModel())
+				if let doc = document.element.toDomainObject() as? Tag {
+					documents.append(doc)
+				}
 			}
 			return .success(documents)
 		} catch (let error) {
@@ -34,7 +36,7 @@ extension TagRepository {
 		do {
 			let db = try await Realm()
 			let tag = try db.object(ofType: TagDataModel.self, forPrimaryKey: ObjectId(string: id))
-			return .success(tag?.toDomainModel())
+			return .success(tag?.toDomainObject() as? Tag)
 		} catch (let error) {
 			return .failure(error)
 		}
@@ -48,7 +50,7 @@ extension TagRepository {
 			try db.write {
 				db.add(dataModel)
 			}
-			return .success(dataModel.toDomainModel())
+			return .success(dataModel.toDomainObject() as? Tag)
 		} catch(let error) {
 			return .failure(error)
 		}
@@ -63,8 +65,9 @@ extension TagRepository {
 				try db.write {
 					db.delete(tag)
 				}
+				return true
 			}
-			return true
+			return false
 		} catch {
 			return false
 		}

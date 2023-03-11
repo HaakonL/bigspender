@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Purchase: Identifiable {
+public struct Purchase: DomainObject {
 	public let id: String?
 	public let amount: Int
 	public let title: String

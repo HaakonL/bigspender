@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F816559229BC849A0050A453 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F816559129BC849A0050A453 /* Realm */; };
 		F816559429BC849A0050A453 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F816559329BC849A0050A453 /* RealmSwift */; };
+		F81655A729BD24330050A453 /* DataEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655A629BD24330050A453 /* DataEntity.swift */; };
+		F81655AB29BD2DD40050A453 /* GenericRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655AA29BD2DD40050A453 /* GenericRepository.swift */; };
 		F87EE41D29BBC71C00CDEF7F /* PeriodDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41529BBC71C00CDEF7F /* PeriodDataModel.swift */; };
 		F87EE41E29BBC71C00CDEF7F /* PeriodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41629BBC71C00CDEF7F /* PeriodRepository.swift */; };
 		F87EE41F29BBC71C00CDEF7F /* TagRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41829BBC71C00CDEF7F /* TagRepository.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F81655A629BD24330050A453 /* DataEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEntity.swift; sourceTree = "<group>"; };
+		F81655AA29BD2DD40050A453 /* GenericRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericRepository.swift; sourceTree = "<group>"; };
 		F87EE40A29BBC5E100CDEF7F /* Persistence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persistence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F87EE41529BBC71C00CDEF7F /* PeriodDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodDataModel.swift; sourceTree = "<group>"; };
 		F87EE41629BBC71C00CDEF7F /* PeriodRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodRepository.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				F87EE41429BBC71C00CDEF7F /* Period */,
 				F87EE41A29BBC71C00CDEF7F /* Purchase */,
 				F87EE41729BBC71C00CDEF7F /* Tag */,
+				F81655A629BD24330050A453 /* DataEntity.swift */,
+				F81655AA29BD2DD40050A453 /* GenericRepository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -211,7 +217,9 @@
 				F87EE42229BBC71C00CDEF7F /* PurchaseRepository.swift in Sources */,
 				F87EE41E29BBC71C00CDEF7F /* PeriodRepository.swift in Sources */,
 				F87EE41F29BBC71C00CDEF7F /* TagRepository.swift in Sources */,
+				F81655A729BD24330050A453 /* DataEntity.swift in Sources */,
 				F87EE41D29BBC71C00CDEF7F /* PeriodDataModel.swift in Sources */,
+				F81655AB29BD2DD40050A453 /* GenericRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

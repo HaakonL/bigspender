@@ -9,7 +9,7 @@ import Foundation
 import Core
 import RealmSwift
 
-public class TagDataModel: Object {
+public class TagDataModel: Object, DataEntity {
 	@Persisted(primaryKey: true) var _id: ObjectId
 	@Persisted public var tag: String = ""
 	
@@ -18,7 +18,7 @@ public class TagDataModel: Object {
 		self.tag = model.tag
 	}
 	
-	public func toDomainModel() -> Tag {
+	public func toDomainObject() -> DomainObject {
 		return Tag(
 			id: _id.stringValue,
 			tag: tag

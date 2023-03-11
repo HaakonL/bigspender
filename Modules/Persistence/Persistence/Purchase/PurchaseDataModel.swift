@@ -9,7 +9,7 @@ import Foundation
 import Core
 import RealmSwift
 
-public class PurchaseDataModel: Object {
+public class PurchaseDataModel: Object, DataEntity {
 	@Persisted(primaryKey: true) var _id: ObjectId
 	public var amount: Int = 0
 	public var title: String = ""
@@ -24,7 +24,7 @@ public class PurchaseDataModel: Object {
 		self.tags = model.tags
 	}
 	
-	public func toDomainModel() -> Purchase {
+	public func toDomainObject() -> DomainObject {
 		return Purchase(
 			id: _id.stringValue,
 			amount: amount,

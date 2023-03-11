@@ -19,12 +19,12 @@ extension PeriodRepository {
 	public func get(by date: Date) async -> Result<Period?, Error> {
 		do {
 			let db = try await Realm()
-			let document = db.objects(PeriodDataModel.self).filter {
+			let documents = db.objects(PeriodDataModel.self).filter {
 				$0.periodStart >= date.adding(.month, value: -1).adding(.day, value: 1).start() &&
 				$0.periodEnd <= date.adding(.month, value: 1).adding(.day, value: -1).end()
 			}
 			
-			return .success(document.first?.toDomainModel() ?? nil)
+			return .success(documents.first?.toDomainObject() as? Period)
 		} catch (let error) {
 			return .failure(error)
 		}
@@ -38,7 +38,7 @@ extension PeriodRepository {
 			try db.write {
 				db.add(dataModel)
 			}
-			return .success(dataModel.toDomainModel())
+			return .success(dataModel.toDomainObject() as? Period)
 		} catch(let error) {
 			return .failure(error)
 		}

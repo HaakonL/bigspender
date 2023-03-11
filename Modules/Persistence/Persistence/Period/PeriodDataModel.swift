@@ -9,7 +9,7 @@ import Foundation
 import Core
 import RealmSwift
 
-public class PeriodDataModel: Object {
+public class PeriodDataModel: Object, DataEntity {	
 	@Persisted(primaryKey: true) var _id: ObjectId
 	public var periodStart: Date = Date().start()
 	public var periodEnd: Date = Date().adding(.month, value: 1).adding(.day, value: -1).end()
@@ -22,7 +22,7 @@ public class PeriodDataModel: Object {
 		self.amountAvailable = periodModel.amountAvailable
 	}
 	
-	public func toDomainModel() -> Period {
+	public func toDomainObject() -> DomainObject {
 		return Period(
 			id: _id.stringValue,
 			periodStart: periodStart,
