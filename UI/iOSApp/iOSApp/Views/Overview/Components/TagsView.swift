@@ -7,20 +7,23 @@
 
 import SwiftUI
 import WrappingStack
+import Core
 
 struct TagsView: View {
-	let tags = ["dining", "groceries", "apparel", "fun", "travel", "transport"]
+	var tags: [Tag]?
     var body: some View {
-		VStack(alignment: .leading) {
-			WrappingHStack (id: \.self, alignment: .leading, horizontalSpacing: 10, verticalSpacing: 10) {
-				ForEach(tags, id: \.self) { tag in
-					Text("#\(tag)")
-						.padding(.horizontal, 8)
-						.padding(.vertical, 3)
-						.background(.mediumBlue)
-						.cornerRadius(5)
-						.foregroundColor(.lightBlue)
-						.font(AppFont.body)
+		if let tags = tags?.map({ $0.tag }) {
+			VStack(alignment: .leading) {
+				WrappingHStack (id: \.self, alignment: .leading, horizontalSpacing: 10, verticalSpacing: 10) {
+					ForEach(tags, id: \.self) { tag in
+						Text("#\(tag)")
+							.padding(.horizontal, 8)
+							.padding(.vertical, 3)
+							.background(.mediumBlue)
+							.cornerRadius(5)
+							.foregroundColor(.lightBlue)
+							.font(AppFont.body)
+					}
 				}
 			}
 		}

@@ -7,23 +7,17 @@
 
 import Foundation
 import Core
-import FirebaseFirestoreSwift
+import RealmSwift
 
-public class PurchaseDataModel: Codable {
-	@DocumentID var id: String?
-	public var amount: Int
-	public var title: String
-	public var when: Date
-	public var tags: [String]
-	
-	public init() {
-		self.amount = 0
-		self.title = ""
-		self.when = Date()
-		self.tags = [String]()
-	}
-	
-	public init(_ model: Purchase) {
+public class PurchaseDataModel: Object {
+	@Persisted(primaryKey: true) var _id: ObjectId
+	public var amount: Int = 0
+	public var title: String = ""
+	public var when: Date = Date()
+	public var tags: [String] = []
+		
+	public convenience init(_ model: Purchase) {
+		self.init()
 		self.amount = model.amount
 		self.title = model.title
 		self.when = model.when
@@ -32,7 +26,7 @@ public class PurchaseDataModel: Codable {
 	
 	public func toDomainModel() -> Purchase {
 		return Purchase(
-			id: id ?? UUID().uuidString,
+			id: _id.stringValue,
 			amount: amount,
 			title: title,
 			when: when,

@@ -7,11 +7,10 @@
 
 import Foundation
 import Core
-import Persistence
 import Resolver
 
 public class PurchaseService: PurchaseServiceProtocol {
-	@Injected private var repository: PurchaseRepository
+	@Injected private var repository: PurchaseRepositoryProtocol
 	
 	public init() {}
 	

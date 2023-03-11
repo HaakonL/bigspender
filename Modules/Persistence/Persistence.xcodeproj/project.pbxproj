@@ -3,44 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F847F144296F5403009D9FA1 /* PeriodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847F143296F5403009D9FA1 /* PeriodRepository.swift */; };
-		F847F146296F55B2009D9FA1 /* PeriodDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847F145296F55B2009D9FA1 /* PeriodDataModel.swift */; };
-		F858F7B12998583700EDC251 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F858F7B02998583700EDC251 /* FirebaseFirestore */; };
-		F858F7BB29985BCB00EDC251 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F858F7BA29985BCB00EDC251 /* FirebaseFirestoreSwift */; };
-		F858F7BD29985D6D00EDC251 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F858F7BC29985D6D00EDC251 /* FirebaseAuth */; };
-		F858F7E72998F5BA00EDC251 /* libFirestoreInstance.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F858F7E62998F5BA00EDC251 /* libFirestoreInstance.a */; };
-		F8596F1528BFD3710029804E /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8596F1428BFD3710029804E /* Core.framework */; };
-		F8596F1628BFD3710029804E /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8596F1428BFD3710029804E /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F861667C29B33F5000526A17 /* TagDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861667B29B33F5000526A17 /* TagDataModel.swift */; };
-		F861668629B3537F00526A17 /* TagRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861668529B3537F00526A17 /* TagRepository.swift */; };
-		F88862B629875C330000B0E9 /* PurchaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88862B529875C330000B0E9 /* PurchaseRepository.swift */; };
-		F88862B829875C420000B0E9 /* PurchaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88862B729875C420000B0E9 /* PurchaseDataModel.swift */; };
-		F8F64D8E28BFC74B00CD55FE /* Persistence.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8F64D8528BFC74B00CD55FE /* Persistence.framework */; };
-		F8F64D9328BFC74B00CD55FE /* PersistenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F64D9228BFC74B00CD55FE /* PersistenceTests.swift */; };
+		F816559229BC849A0050A453 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = F816559129BC849A0050A453 /* Realm */; };
+		F816559429BC849A0050A453 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F816559329BC849A0050A453 /* RealmSwift */; };
+		F87EE41D29BBC71C00CDEF7F /* PeriodDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41529BBC71C00CDEF7F /* PeriodDataModel.swift */; };
+		F87EE41E29BBC71C00CDEF7F /* PeriodRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41629BBC71C00CDEF7F /* PeriodRepository.swift */; };
+		F87EE41F29BBC71C00CDEF7F /* TagRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41829BBC71C00CDEF7F /* TagRepository.swift */; };
+		F87EE42029BBC71C00CDEF7F /* TagDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41929BBC71C00CDEF7F /* TagDataModel.swift */; };
+		F87EE42129BBC71C00CDEF7F /* PurchaseDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41B29BBC71C00CDEF7F /* PurchaseDataModel.swift */; };
+		F87EE42229BBC71C00CDEF7F /* PurchaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87EE41C29BBC71C00CDEF7F /* PurchaseRepository.swift */; };
+		F87EE42C29BBC99300CDEF7F /* Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F87EE42B29BBC99300CDEF7F /* Core.framework */; };
+		F87EE42D29BBC99300CDEF7F /* Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F87EE42B29BBC99300CDEF7F /* Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		F8F64D8F28BFC74B00CD55FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F8F64D7C28BFC74B00CD55FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F8F64D8428BFC74B00CD55FE;
-			remoteInfo = Persistence;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		F8F64DB428BFC85700CD55FE /* Embed Frameworks */ = {
+		F87EE42E29BBC99300CDEF7F /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				F8596F1628BFD3710029804E /* Core.framework in Embed Frameworks */,
+				F87EE42D29BBC99300CDEF7F /* Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,114 +34,88 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		F847F143296F5403009D9FA1 /* PeriodRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodRepository.swift; sourceTree = "<group>"; };
-		F847F145296F55B2009D9FA1 /* PeriodDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodDataModel.swift; sourceTree = "<group>"; };
-		F858F7E62998F5BA00EDC251 /* libFirestoreInstance.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libFirestoreInstance.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8596F1428BFD3710029804E /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F861667B29B33F5000526A17 /* TagDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagDataModel.swift; sourceTree = "<group>"; };
-		F861668529B3537F00526A17 /* TagRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagRepository.swift; sourceTree = "<group>"; };
-		F88862B529875C330000B0E9 /* PurchaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRepository.swift; sourceTree = "<group>"; };
-		F88862B729875C420000B0E9 /* PurchaseDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDataModel.swift; sourceTree = "<group>"; };
-		F8E5520E2990E75000F9E367 /* FirebaseSharedInstance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseSharedInstance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8F64D8528BFC74B00CD55FE /* Persistence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persistence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8F64D8D28BFC74B00CD55FE /* PersistenceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersistenceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8F64D9228BFC74B00CD55FE /* PersistenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceTests.swift; sourceTree = "<group>"; };
+		F87EE40A29BBC5E100CDEF7F /* Persistence.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Persistence.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F87EE41529BBC71C00CDEF7F /* PeriodDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodDataModel.swift; sourceTree = "<group>"; };
+		F87EE41629BBC71C00CDEF7F /* PeriodRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeriodRepository.swift; sourceTree = "<group>"; };
+		F87EE41829BBC71C00CDEF7F /* TagRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagRepository.swift; sourceTree = "<group>"; };
+		F87EE41929BBC71C00CDEF7F /* TagDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagDataModel.swift; sourceTree = "<group>"; };
+		F87EE41B29BBC71C00CDEF7F /* PurchaseDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseDataModel.swift; sourceTree = "<group>"; };
+		F87EE41C29BBC71C00CDEF7F /* PurchaseRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PurchaseRepository.swift; sourceTree = "<group>"; };
+		F87EE42B29BBC99300CDEF7F /* Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F8F64D8228BFC74B00CD55FE /* Frameworks */ = {
+		F87EE40729BBC5E100CDEF7F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F858F7B12998583700EDC251 /* FirebaseFirestore in Frameworks */,
-				F858F7BD29985D6D00EDC251 /* FirebaseAuth in Frameworks */,
-				F8596F1528BFD3710029804E /* Core.framework in Frameworks */,
-				F858F7BB29985BCB00EDC251 /* FirebaseFirestoreSwift in Frameworks */,
-				F858F7E72998F5BA00EDC251 /* libFirestoreInstance.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8F64D8A28BFC74B00CD55FE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8F64D8E28BFC74B00CD55FE /* Persistence.framework in Frameworks */,
+				F816559429BC849A0050A453 /* RealmSwift in Frameworks */,
+				F816559229BC849A0050A453 /* Realm in Frameworks */,
+				F87EE42C29BBC99300CDEF7F /* Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F847F142296F53F4009D9FA1 /* Period */ = {
+		F87EE40029BBC5E100CDEF7F = {
 			isa = PBXGroup;
 			children = (
-				F847F143296F5403009D9FA1 /* PeriodRepository.swift */,
-				F847F145296F55B2009D9FA1 /* PeriodDataModel.swift */,
-			);
-			path = Period;
-			sourceTree = "<group>";
-		};
-		F861667A29B33F2B00526A17 /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-				F861668529B3537F00526A17 /* TagRepository.swift */,
-				F861667B29B33F5000526A17 /* TagDataModel.swift */,
-			);
-			path = Tag;
-			sourceTree = "<group>";
-		};
-		F88862B429875C220000B0E9 /* Purchase */ = {
-			isa = PBXGroup;
-			children = (
-				F88862B529875C330000B0E9 /* PurchaseRepository.swift */,
-				F88862B729875C420000B0E9 /* PurchaseDataModel.swift */,
-			);
-			path = Purchase;
-			sourceTree = "<group>";
-		};
-		F8F64D7B28BFC74B00CD55FE = {
-			isa = PBXGroup;
-			children = (
-				F8F64D8728BFC74B00CD55FE /* Persistence */,
-				F8F64D9128BFC74B00CD55FE /* PersistenceTests */,
-				F8F64D8628BFC74B00CD55FE /* Products */,
-				F8F64DB028BFC85700CD55FE /* Frameworks */,
+				F87EE40C29BBC5E100CDEF7F /* Persistence */,
+				F87EE40B29BBC5E100CDEF7F /* Products */,
+				F87EE42A29BBC99300CDEF7F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		F8F64D8628BFC74B00CD55FE /* Products */ = {
+		F87EE40B29BBC5E100CDEF7F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F8F64D8528BFC74B00CD55FE /* Persistence.framework */,
-				F8F64D8D28BFC74B00CD55FE /* PersistenceTests.xctest */,
+				F87EE40A29BBC5E100CDEF7F /* Persistence.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F8F64D8728BFC74B00CD55FE /* Persistence */ = {
+		F87EE40C29BBC5E100CDEF7F /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				F847F142296F53F4009D9FA1 /* Period */,
-				F88862B429875C220000B0E9 /* Purchase */,
-				F861667A29B33F2B00526A17 /* Tag */,
+				F87EE41429BBC71C00CDEF7F /* Period */,
+				F87EE41A29BBC71C00CDEF7F /* Purchase */,
+				F87EE41729BBC71C00CDEF7F /* Tag */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
 		};
-		F8F64D9128BFC74B00CD55FE /* PersistenceTests */ = {
+		F87EE41429BBC71C00CDEF7F /* Period */ = {
 			isa = PBXGroup;
 			children = (
-				F8F64D9228BFC74B00CD55FE /* PersistenceTests.swift */,
+				F87EE41529BBC71C00CDEF7F /* PeriodDataModel.swift */,
+				F87EE41629BBC71C00CDEF7F /* PeriodRepository.swift */,
 			);
-			path = PersistenceTests;
+			path = Period;
 			sourceTree = "<group>";
 		};
-		F8F64DB028BFC85700CD55FE /* Frameworks */ = {
+		F87EE41729BBC71C00CDEF7F /* Tag */ = {
 			isa = PBXGroup;
 			children = (
-				F858F7E62998F5BA00EDC251 /* libFirestoreInstance.a */,
-				F8E5520E2990E75000F9E367 /* FirebaseSharedInstance.framework */,
-				F8596F1428BFD3710029804E /* Core.framework */,
+				F87EE41929BBC71C00CDEF7F /* TagDataModel.swift */,
+				F87EE41829BBC71C00CDEF7F /* TagRepository.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		F87EE41A29BBC71C00CDEF7F /* Purchase */ = {
+			isa = PBXGroup;
+			children = (
+				F87EE41B29BBC71C00CDEF7F /* PurchaseDataModel.swift */,
+				F87EE41C29BBC71C00CDEF7F /* PurchaseRepository.swift */,
+			);
+			path = Purchase;
+			sourceTree = "<group>";
+		};
+		F87EE42A29BBC99300CDEF7F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F87EE42B29BBC99300CDEF7F /* Core.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -163,7 +123,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		F8F64D8028BFC74B00CD55FE /* Headers */ = {
+		F87EE40529BBC5E100CDEF7F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -173,15 +133,15 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F8F64D8428BFC74B00CD55FE /* Persistence */ = {
+		F87EE40929BBC5E100CDEF7F /* Persistence */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8F64D9728BFC74B00CD55FE /* Build configuration list for PBXNativeTarget "Persistence" */;
+			buildConfigurationList = F87EE41129BBC5E100CDEF7F /* Build configuration list for PBXNativeTarget "Persistence" */;
 			buildPhases = (
-				F8F64D8028BFC74B00CD55FE /* Headers */,
-				F8F64D8128BFC74B00CD55FE /* Sources */,
-				F8F64D8228BFC74B00CD55FE /* Frameworks */,
-				F8F64D8328BFC74B00CD55FE /* Resources */,
-				F8F64DB428BFC85700CD55FE /* Embed Frameworks */,
+				F87EE40529BBC5E100CDEF7F /* Headers */,
+				F87EE40629BBC5E100CDEF7F /* Sources */,
+				F87EE40729BBC5E100CDEF7F /* Frameworks */,
+				F87EE40829BBC5E100CDEF7F /* Resources */,
+				F87EE42E29BBC99300CDEF7F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -189,81 +149,50 @@
 			);
 			name = Persistence;
 			packageProductDependencies = (
-				F858F7B02998583700EDC251 /* FirebaseFirestore */,
-				F858F7BA29985BCB00EDC251 /* FirebaseFirestoreSwift */,
-				F858F7BC29985D6D00EDC251 /* FirebaseAuth */,
+				F816559129BC849A0050A453 /* Realm */,
+				F816559329BC849A0050A453 /* RealmSwift */,
 			);
 			productName = Persistence;
-			productReference = F8F64D8528BFC74B00CD55FE /* Persistence.framework */;
+			productReference = F87EE40A29BBC5E100CDEF7F /* Persistence.framework */;
 			productType = "com.apple.product-type.framework";
-		};
-		F8F64D8C28BFC74B00CD55FE /* PersistenceTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F8F64D9A28BFC74B00CD55FE /* Build configuration list for PBXNativeTarget "PersistenceTests" */;
-			buildPhases = (
-				F8F64D8928BFC74B00CD55FE /* Sources */,
-				F8F64D8A28BFC74B00CD55FE /* Frameworks */,
-				F8F64D8B28BFC74B00CD55FE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				F8F64D9028BFC74B00CD55FE /* PBXTargetDependency */,
-			);
-			name = PersistenceTests;
-			productName = PersistenceTests;
-			productReference = F8F64D8D28BFC74B00CD55FE /* PersistenceTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F8F64D7C28BFC74B00CD55FE /* Project object */ = {
+		F87EE40129BBC5E100CDEF7F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					F8F64D8428BFC74B00CD55FE = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
-					F8F64D8C28BFC74B00CD55FE = {
-						CreatedOnToolsVersion = 13.4.1;
+					F87EE40929BBC5E100CDEF7F = {
+						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = F8F64D7F28BFC74B00CD55FE /* Build configuration list for PBXProject "Persistence" */;
-			compatibilityVersion = "Xcode 13.0";
+			buildConfigurationList = F87EE40429BBC5E100CDEF7F /* Build configuration list for PBXProject "Persistence" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = F8F64D7B28BFC74B00CD55FE;
+			mainGroup = F87EE40029BBC5E100CDEF7F;
 			packageReferences = (
-				F8E551E82990399000F9E367 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				F816559029BC84990050A453 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
-			productRefGroup = F8F64D8628BFC74B00CD55FE /* Products */;
+			productRefGroup = F87EE40B29BBC5E100CDEF7F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F8F64D8428BFC74B00CD55FE /* Persistence */,
-				F8F64D8C28BFC74B00CD55FE /* PersistenceTests */,
+				F87EE40929BBC5E100CDEF7F /* Persistence */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F8F64D8328BFC74B00CD55FE /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8F64D8B28BFC74B00CD55FE /* Resources */ = {
+		F87EE40829BBC5E100CDEF7F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -273,45 +202,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F8F64D8128BFC74B00CD55FE /* Sources */ = {
+		F87EE40629BBC5E100CDEF7F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F847F146296F55B2009D9FA1 /* PeriodDataModel.swift in Sources */,
-				F88862B829875C420000B0E9 /* PurchaseDataModel.swift in Sources */,
-				F847F144296F5403009D9FA1 /* PeriodRepository.swift in Sources */,
-				F861668629B3537F00526A17 /* TagRepository.swift in Sources */,
-				F88862B629875C330000B0E9 /* PurchaseRepository.swift in Sources */,
-				F861667C29B33F5000526A17 /* TagDataModel.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F8F64D8928BFC74B00CD55FE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				F8F64D9328BFC74B00CD55FE /* PersistenceTests.swift in Sources */,
+				F87EE42129BBC71C00CDEF7F /* PurchaseDataModel.swift in Sources */,
+				F87EE42029BBC71C00CDEF7F /* TagDataModel.swift in Sources */,
+				F87EE42229BBC71C00CDEF7F /* PurchaseRepository.swift in Sources */,
+				F87EE41E29BBC71C00CDEF7F /* PeriodRepository.swift in Sources */,
+				F87EE41F29BBC71C00CDEF7F /* TagRepository.swift in Sources */,
+				F87EE41D29BBC71C00CDEF7F /* PeriodDataModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F8F64D9028BFC74B00CD55FE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F8F64D8428BFC74B00CD55FE /* Persistence */;
-			targetProxy = F8F64D8F28BFC74B00CD55FE /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		F8F64D9528BFC74B00CD55FE /* Debug */ = {
+		F87EE40F29BBC5E100CDEF7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -356,7 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -368,13 +281,13 @@
 			};
 			name = Debug;
 		};
-		F8F64D9628BFC74B00CD55FE /* Release */ = {
+		F87EE41029BBC5E100CDEF7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -413,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -425,7 +338,7 @@
 			};
 			name = Release;
 		};
-		F8F64D9828BFC74B00CD55FE /* Debug */ = {
+		F87EE41229BBC5E100CDEF7F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -438,15 +351,13 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = no.lageng.speedfriends.Persistence;
+				PRODUCT_BUNDLE_IDENTIFIER = no.lageng.bigspender.persistence;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -458,7 +369,7 @@
 			};
 			name = Debug;
 		};
-		F8F64D9928BFC74B00CD55FE /* Release */ = {
+		F87EE41329BBC5E100CDEF7F /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -471,55 +382,19 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = no.lageng.speedfriends.Persistence;
+				PRODUCT_BUNDLE_IDENTIFIER = no.lageng.bigspender.persistence;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		F8F64D9B28BFC74B00CD55FE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZG82D2WT4;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = no.lageng.speedfriends.PersistenceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		F8F64D9C28BFC74B00CD55FE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = AZG82D2WT4;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = no.lageng.speedfriends.PersistenceTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -528,29 +403,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F8F64D7F28BFC74B00CD55FE /* Build configuration list for PBXProject "Persistence" */ = {
+		F87EE40429BBC5E100CDEF7F /* Build configuration list for PBXProject "Persistence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8F64D9528BFC74B00CD55FE /* Debug */,
-				F8F64D9628BFC74B00CD55FE /* Release */,
+				F87EE40F29BBC5E100CDEF7F /* Debug */,
+				F87EE41029BBC5E100CDEF7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F8F64D9728BFC74B00CD55FE /* Build configuration list for PBXNativeTarget "Persistence" */ = {
+		F87EE41129BBC5E100CDEF7F /* Build configuration list for PBXNativeTarget "Persistence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8F64D9828BFC74B00CD55FE /* Debug */,
-				F8F64D9928BFC74B00CD55FE /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F8F64D9A28BFC74B00CD55FE /* Build configuration list for PBXNativeTarget "PersistenceTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F8F64D9B28BFC74B00CD55FE /* Debug */,
-				F8F64D9C28BFC74B00CD55FE /* Release */,
+				F87EE41229BBC5E100CDEF7F /* Debug */,
+				F87EE41329BBC5E100CDEF7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -558,9 +424,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		F8E551E82990399000F9E367 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+		F816559029BC84990050A453 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -569,22 +435,17 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		F858F7B02998583700EDC251 /* FirebaseFirestore */ = {
+		F816559129BC849A0050A453 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8E551E82990399000F9E367 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestore;
+			package = F816559029BC84990050A453 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
 		};
-		F858F7BA29985BCB00EDC251 /* FirebaseFirestoreSwift */ = {
+		F816559329BC849A0050A453 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = F8E551E82990399000F9E367 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-		F858F7BC29985D6D00EDC251 /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F8E551E82990399000F9E367 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
+			package = F816559029BC84990050A453 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = F8F64D7C28BFC74B00CD55FE /* Project object */;
+	rootObject = F87EE40129BBC5E100CDEF7F /* Project object */;
 }

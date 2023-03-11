@@ -16,9 +16,7 @@ extension Resolver: ResolverRegistering {
 	}
 	
 	public static func bootstrapApp() {
-		register { PeriodViewModel() }
 		register { OverviewViewModel() }
-		register { PhoneNumberViewModel() }
 		register { AddPurchaseViewModel() }
 	}
 }

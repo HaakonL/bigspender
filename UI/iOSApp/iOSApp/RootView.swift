@@ -10,7 +10,6 @@ import Core
 import Resolver
 
 struct RootView: View {
-	@State var isOnboarding = !AuthViewModel.isUserLoggedIn()
 	@State var showAddPurchase = false
 	
     var body: some View {
@@ -24,10 +23,7 @@ struct RootView: View {
 		}
 		.sheet(isPresented: $showAddPurchase) {
 			AddPurchaseView()
-		}		
-		/*.fullScreenCover(isPresented: $isOnboarding) {
-			OnboardingContainerView(isOnboarding: $isOnboarding)
-		}*/
+		}
     }
 }
 

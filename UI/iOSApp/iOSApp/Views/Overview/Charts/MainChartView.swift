@@ -16,7 +16,7 @@ enum MainChartState {
 struct MainChartView: View {
 	@StateObject var overviewViewModel: OverviewViewModel
 	@State var currentChart: MainChartState = .forecast
-	var mainChartHeight: CGFloat
+	let mainChartHeight: CGFloat = 180
 	
     var body: some View {
 		ZStack {

@@ -7,23 +7,20 @@
 
 import Foundation
 import Core
-import FirebaseFirestoreSwift
+import RealmSwift
 
-public class TagDataModel: Codable {
-	@DocumentID var id: String?
-	public var tag: String
+public class TagDataModel: Object {
+	@Persisted(primaryKey: true) var _id: ObjectId
+	@Persisted public var tag: String = ""
 	
-	public init() {
-		tag = ""
-	}
-	
-	public init(_ model: Tag) {
+	public convenience init(_ model: Tag) {
+		self.init()
 		self.tag = model.tag
 	}
 	
 	public func toDomainModel() -> Tag {
 		return Tag(
-			id: id ?? UUID().uuidString,
+			id: _id.stringValue,
 			tag: tag
 		)
 	}

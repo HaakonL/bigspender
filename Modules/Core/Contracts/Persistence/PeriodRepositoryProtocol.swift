@@ -2,7 +2,7 @@
 //  PeriodRepositoryProtocol.swift
 //  Core
 //
-//  Created by Haakon Langaas Lageng on 01/02/2023.
+//  Created by Haakon Langaas Lageng on 11/03/2023.
 //
 
 import Foundation

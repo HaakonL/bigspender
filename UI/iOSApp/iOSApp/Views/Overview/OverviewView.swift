@@ -13,7 +13,6 @@ import Core
 struct OverviewView: View {
 	@ObservedObject private var viewModel: OverviewViewModel = Resolver.resolve()
 	@Binding var showAddPurchase: Bool
-	let mainChartHeight: CGFloat = 180
 	
     var body: some View {
 		ZStack {
@@ -22,7 +21,7 @@ struct OverviewView: View {
 					
 					Spacer().frame(height: 15)
 					
-					MainChartView(overviewViewModel: viewModel, mainChartHeight: mainChartHeight)
+					MainChartView(overviewViewModel: viewModel)
 					
 					TextualStatusView(averageSpent: 275, averageToSpend: 613)
 						.padding(.top, 10)
@@ -30,7 +29,7 @@ struct OverviewView: View {
 					InfoBoxesView()
 						.padding(.top, 10)
 					
-					TagsView()
+					TagsView(tags: viewModel.tags)
 						.padding(.top, 10)
 					
 					Spacer()
@@ -42,7 +41,7 @@ struct OverviewView: View {
 			.padding(.horizontal)
 		}
 		.task {
-			await viewModel.loadPeriod()
+			await viewModel.loadData()
 		}
 	}
 }

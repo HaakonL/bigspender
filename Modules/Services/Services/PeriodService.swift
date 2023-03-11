@@ -7,11 +7,10 @@
 
 import Foundation
 import Core
-import Persistence
 import Resolver
 
 public class PeriodService: PeriodServiceProtocol {
-	@Injected private var repository: PeriodRepository
+	@Injected private var repository: PeriodRepositoryProtocol
 	
 	public init() {}
 	

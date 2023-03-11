@@ -7,11 +7,10 @@
 
 import Foundation
 import Core
-import Persistence
 import Resolver
 
 public class TagService: TagServiceProtocol {
-	@Injected private var repository: TagRepository
+	@Injected private var repository: TagRepositoryProtocol
 	
 	public init() {}
 	
@@ -35,5 +34,9 @@ public class TagService: TagServiceProtocol {
 				print(error)
 				return nil
 		}
+	}
+	
+	public func removeTag(id: String) async -> Bool {
+		await repository.remove(id)
 	}
 }

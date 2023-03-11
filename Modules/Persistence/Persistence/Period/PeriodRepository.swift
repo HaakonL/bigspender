@@ -7,41 +7,38 @@
 
 import Foundation
 import Core
-import FirestoreInstance
-import FirebaseCore
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+import RealmSwift
 
-public class PeriodRepository {
-	private let db: CollectionReference
-	
-	public init() {
-		db = FirestoreInstance.database(for: "periods")
-	}
+public class PeriodRepository: PeriodRepositoryProtocol {
+	public init() {}
 }
 
 extension PeriodRepository {
+	
+	@MainActor
 	public func get(by date: Date) async -> Result<Period?, Error> {
-		let query = db
-			.whereField("periodStart", isGreaterThan: date.adding(.month, value: -1).adding(.day, value: 1).start())
-			.whereField("periodStart", isLessThan: date.adding(.month, value: 1).adding(.day, value: -1).end())
-		
 		do {
-			let snapshot = try await query.getDocuments()
-			let document = try snapshot.documents.first?.data(as: PeriodDataModel.self)
-			return .success(document?.toDomainModel())
+			let db = try await Realm()
+			let document = db.objects(PeriodDataModel.self).filter {
+				$0.periodStart >= date.adding(.month, value: -1).adding(.day, value: 1).start() &&
+				$0.periodEnd <= date.adding(.month, value: 1).adding(.day, value: -1).end()
+			}
+			
+			return .success(document.first?.toDomainModel() ?? nil)
 		} catch (let error) {
 			return .failure(error)
 		}
 	}
 	
+	@MainActor
 	public func save(_ period: Period) async -> Result<Period?, Error> {
-		let dataModel = PeriodDataModel(period)
-
 		do {
-			let result = try db.addDocument(from: dataModel)
-			let document = try await result.getDocument(as: PeriodDataModel.self)
-			return .success(document.toDomainModel())
+			let db = try await Realm()
+			let dataModel = PeriodDataModel(period)
+			try db.write {
+				db.add(dataModel)
+			}
+			return .success(dataModel.toDomainModel())
 		} catch(let error) {
 			return .failure(error)
 		}

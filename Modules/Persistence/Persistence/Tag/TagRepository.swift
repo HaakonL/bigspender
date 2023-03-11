@@ -7,39 +7,66 @@
 
 import Foundation
 import Core
-import FirestoreInstance
-import FirebaseCore
-import FirebaseFirestore
-import FirebaseFirestoreSwift
+import RealmSwift
 
-public class TagRepository {
-	private let db: CollectionReference
-	
-	public init() {
-		db = FirestoreInstance.database(for: "tags")
-	}
+public class TagRepository: TagRepositoryProtocol {
+	public init() {}
 }
 
 extension TagRepository {
-	public func get() async -> Result<[Tag]?, Error> {
+	
+	@MainActor
+	public func get() async -> Result<[Tag], Error> {
 		do {
-			let snapshot = try await db.getDocuments()
-			let documents = try snapshot.documents.map { try $0.data(as: TagDataModel.self).toDomainModel() }
+			let db = try await Realm()
+			var documents = [Tag]()
+			for document in db.objects(TagDataModel.self).enumerated() {
+				documents.append(document.element.toDomainModel())
+			}
 			return .success(documents)
 		} catch (let error) {
 			return .failure(error)
 		}
 	}
 	
-	public func save(_ tag: Tag) async -> Result<Tag?, Error> {
-		let dataModel = TagDataModel(tag)
-		
+	@MainActor
+	public func get(id: String) async -> Result<Tag?, Error> {
 		do {
-			let result = try db.addDocument(from: dataModel)
-			let document = try await result.getDocument(as: TagDataModel.self)
-			return .success(document.toDomainModel())
+			let db = try await Realm()
+			let tag = try db.object(ofType: TagDataModel.self, forPrimaryKey: ObjectId(string: id))
+			return .success(tag?.toDomainModel())
+		} catch (let error) {
+			return .failure(error)
+		}
+	}
+	
+	@MainActor
+	public func save(_ tag: Tag) async -> Result<Tag?, Error> {
+		do {
+			let db = try await Realm()
+			let dataModel = TagDataModel(tag)
+			try db.write {
+				db.add(dataModel)
+			}
+			return .success(dataModel.toDomainModel())
 		} catch(let error) {
 			return .failure(error)
+		}
+	}
+	
+	@MainActor
+	public func remove(_ id: String) async -> Bool {
+		do {
+			let db = try await Realm()
+			let tag = try db.object(ofType: TagDataModel.self, forPrimaryKey: ObjectId(string: id))
+			if let tag = tag {
+				try db.write {
+					db.delete(tag)
+				}
+			}
+			return true
+		} catch {
+			return false
 		}
 	}
 }

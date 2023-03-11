@@ -8,12 +8,12 @@
 import Foundation
 
 public struct Period {
-	public let id: String
+	public let id: String?
 	public let periodStart: Date
 	public let periodEnd: Date
 	public let amountAvailable: Int
 	
-	public init(id: String, periodStart: Date, periodEnd: Date, amountAvailable: Int) {
+	public init(id: String?, periodStart: Date, periodEnd: Date, amountAvailable: Int) {
 		self.id = id
 		self.periodStart = periodStart
 		self.periodEnd = periodEnd

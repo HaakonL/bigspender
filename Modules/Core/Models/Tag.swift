@@ -8,11 +8,11 @@
 import Foundation
 
 public struct Tag {
-	public let id: String
+	public let id: String?
 	public let tag: String
 	
-	public init(id: String, tag: String) {
+	public init(id: String?, tag: String) {
 		self.id = id
 		self.tag = tag
-	}
+	}	
 }

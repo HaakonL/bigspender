@@ -1,0 +1,16 @@
+PODS:
+  - ObjectBox (1.8.1)
+
+DEPENDENCIES:
+  - ObjectBox
+
+SPEC REPOS:
+  trunk:
+    - ObjectBox
+
+SPEC CHECKSUMS:
+  ObjectBox: a7900d5335218cd437cbc080b7ccc38a5211f7b4
+
+PODFILE CHECKSUM: 234fd1583136e22d689dc91e718f3428a976a815
+
+COCOAPODS: 1.11.3

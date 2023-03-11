@@ -11,12 +11,30 @@ import Core
 
 public class OverviewViewModel: ObservableObject {
 	@Injected private var periodService: PeriodServiceProtocol
-	@Published public private(set) var currentPeriod: Period?
+	@Injected private var tagService: TagServiceProtocol
 	
-	public func loadPeriod() async {
+	@Published public private(set) var currentPeriod: Period?
+	@Published public private(set) var tags: [Tag]?
+	
+	public func loadData() async {
 		if let period = await periodService.getPeriod(by: Date()) {
 			DispatchQueue.main.async {
 				self.currentPeriod = period
+			}
+		}
+		if let allTags = await tagService.getAllTags() {
+			DispatchQueue.main.async {
+				self.tags = allTags
+			}
+			
+			// Make sure we have the default tag as a minimum
+			if allTags.isEmpty {
+				let tag = Tag(id: nil, tag: "default")
+				_ = await tagService.saveTag(tag)
+				
+				DispatchQueue.main.async {
+					self.tags = [tag]
+				}
 			}
 		}
 	}

@@ -14,9 +14,6 @@
       location = "group:Modules/Persistence/Persistence.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:UI/iOSApp/../../Modules/FirestoreInstance/FirestoreInstance.xcodeproj">
-   </FileRef>
-   <FileRef
       location = "group:Modules/Bootstrap/Bootstrap.xcodeproj">
    </FileRef>
 </Workspace>
