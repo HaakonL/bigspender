@@ -15,7 +15,7 @@ public class TagService: TagServiceProtocol {
 	public init() {}
 	
 	public func getAllTags() async -> [Tag]? {
-		let result = await repository.get()
+		let result = await repository.getAll()
 		switch result {
 			case .success(let tags):
 				return tags
@@ -25,18 +25,14 @@ public class TagService: TagServiceProtocol {
 		}
 	}
 	
-	public func saveTag(_ tag: Tag) async -> Tag? {
+	public func saveTag(_ tag: Tag) async -> Bool? {
 		let result = await repository.save(tag)
 		switch result {
-			case .success(let tag):
-				return tag
+			case .success(let status):
+				return status
 			case .failure(let error):
 				print(error)
 				return nil
 		}
-	}
-	
-	public func removeTag(id: String) async -> Bool {
-		await repository.remove(id)
 	}
 }

@@ -15,11 +15,6 @@ extension Resolver {
 		register { PeriodService() as PeriodServiceProtocol }
 		register { PurchaseService() as PurchaseServiceProtocol }
 		register { TagService() as TagServiceProtocol }
-		
-#if DEBUG || TEST
-		//register { FriendsMockService() as FriendsServiceProtocol }
-		//register { InMemoryDataManager() as DataManagerProtocol }
-#endif
 	}
 	
 	public static func bootstrapPersistence() {

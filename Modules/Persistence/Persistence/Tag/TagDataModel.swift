@@ -9,7 +9,7 @@ import Foundation
 import Core
 import RealmSwift
 
-public class TagDataModel: Object, DataEntity {
+public class TagDataModel: Object, RepositoryObject {
 	@Persisted(primaryKey: true) var _id: ObjectId
 	@Persisted public var tag: String = ""
 	

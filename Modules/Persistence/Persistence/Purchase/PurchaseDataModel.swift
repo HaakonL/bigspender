@@ -9,7 +9,7 @@ import Foundation
 import Core
 import RealmSwift
 
-public class PurchaseDataModel: Object, DataEntity {
+public class PurchaseDataModel: Object, RepositoryObject {
 	@Persisted(primaryKey: true) var _id: ObjectId
 	public var amount: Int = 0
 	public var title: String = ""

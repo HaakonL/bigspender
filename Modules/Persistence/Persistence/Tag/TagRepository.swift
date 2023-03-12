@@ -7,69 +7,35 @@
 
 import Foundation
 import Core
-import RealmSwift
+import Resolver
 
 public class TagRepository: TagRepositoryProtocol {
 	public init() {}
+	
+	private var repository = RealmRepository<TagDataModel>()
 }
 
 extension TagRepository {
 	
 	@MainActor
-	public func get() async -> Result<[Tag], Error> {
-		do {
-			let db = try await Realm()
-			var documents = [Tag]()
-			for document in db.objects(TagDataModel.self).enumerated() {
-				if let doc = document.element.toDomainObject() as? Tag {
-					documents.append(doc)
-				}
-			}
-			return .success(documents)
-		} catch (let error) {
-			return .failure(error)
+	public func getAll() async -> Result<[Tag], Error> {
+		let result = await repository.get()
+		switch result {
+			case .success(let objects):
+				return .success(objects.compactMap {$0.toDomainObject() as? Tag})
+			case .failure(let error):
+				return .failure(error)
 		}
 	}
 	
 	@MainActor
-	public func get(id: String) async -> Result<Tag?, Error> {
-		do {
-			let db = try await Realm()
-			let tag = try db.object(ofType: TagDataModel.self, forPrimaryKey: ObjectId(string: id))
-			return .success(tag?.toDomainObject() as? Tag)
-		} catch (let error) {
-			return .failure(error)
-		}
-	}
-	
-	@MainActor
-	public func save(_ tag: Tag) async -> Result<Tag?, Error> {
-		do {
-			let db = try await Realm()
-			let dataModel = TagDataModel(tag)
-			try db.write {
-				db.add(dataModel)
-			}
-			return .success(dataModel.toDomainObject() as? Tag)
-		} catch(let error) {
-			return .failure(error)
-		}
-	}
-	
-	@MainActor
-	public func remove(_ id: String) async -> Bool {
-		do {
-			let db = try await Realm()
-			let tag = try db.object(ofType: TagDataModel.self, forPrimaryKey: ObjectId(string: id))
-			if let tag = tag {
-				try db.write {
-					db.delete(tag)
-				}
-				return true
-			}
-			return false
-		} catch {
-			return false
+	public func save(_ tag: Tag) async -> Result<Bool, Error> {
+		let result = await repository.save(TagDataModel(tag))
+		switch result {
+			case .success(let status):
+				return .success(status)
+			case .failure(let error):
+				return .failure(error)
 		}
 	}
 }
