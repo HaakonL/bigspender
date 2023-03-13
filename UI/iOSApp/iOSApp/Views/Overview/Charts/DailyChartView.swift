@@ -24,7 +24,7 @@ struct DailyChartView: View {
 					x: .value("Day", item.day, unit: .day),
 					y: .value("Spent", item.spendings)
 				)
-				.foregroundStyle(.regularOrange)
+				.foregroundStyle(item.spendings > item.dailyBudget ? .red : .green)
 			}
 			.chartXAxis(.hidden)
 			.chartYAxis {
@@ -37,6 +37,7 @@ struct DailyChartView: View {
 						.offset(x: -3)
 				}
 			}
+			.chartYScale(domain: 0...2102)
 		}
     }
 }

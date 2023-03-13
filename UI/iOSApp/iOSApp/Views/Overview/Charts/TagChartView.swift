@@ -44,6 +44,7 @@ struct TagChartView: View {
 				}
 			}
 			.chartLegend(.hidden)
+			.chartYScale(domain: 0...3550)
 		}
     }
 }

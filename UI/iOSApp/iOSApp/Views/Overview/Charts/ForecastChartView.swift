@@ -22,9 +22,20 @@ struct ForecastChartView: View {
 			Chart(chartData, id: \.day) { item in
 				LineMark(
 					x: .value("Day", item.day, unit: .day),
-					y: .value("Spent", item.spendings)
+					y: .value("Budget", item.budgeted),
+					series: .value("Budget", "B")
 				)
 				.foregroundStyle(.regularOrange)
+				.opacity(0.5)
+				.lineStyle(StrokeStyle(lineWidth: 1, lineCap: .round, dash: [5,5]))
+				
+				LineMark(
+					x: .value("Day", item.day, unit: .day),
+					y: .value("Spent", item.spendings),
+					series: .value("Spent", "S")
+				)
+				.foregroundStyle(.regularOrange)
+				
 			}
 			.chartXAxis(.hidden)
 			.chartYAxis {
