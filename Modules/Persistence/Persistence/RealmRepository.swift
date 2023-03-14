@@ -9,7 +9,7 @@ import Foundation
 import Core
 import RealmSwift
 
-public class RealmRepository<T:RepositoryObject&Object> {
+public class RealmRepository<T> where T:RepositoryObject & Object {
 	public init() {}
 }
 
