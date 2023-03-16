@@ -25,11 +25,11 @@ public class PeriodService: PeriodServiceProtocol {
 		}
 	}
 	
-	public func savePeriod(_ period: Period) async -> Period? {
+	public func savePeriod(_ period: Period) async -> Bool? {
 		let result = await repository.save(period)
 		switch result {
-			case .success(let period):
-				return period
+			case .success(let status):
+				return status
 			case .failure(let error):
 				print(error)
 				return nil

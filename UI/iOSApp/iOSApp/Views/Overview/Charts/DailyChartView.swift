@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct DailyChartView: View {
-	var chartData: [ChartData]
+	var budget: Budget
 	
     var body: some View {
 		Group {
@@ -19,12 +19,12 @@ struct DailyChartView: View {
 				.padding(.bottom, 20)
 				.offset(x: -3)
 			
-			Chart(chartData, id: \.day) { item in
+			Chart(budget.days, id: \.day) { item in
 				BarMark(
 					x: .value("Day", item.day, unit: .day),
 					y: .value("Spent", item.spendings)
 				)
-				.foregroundStyle(item.spendings > item.dailyBudget ? .red : .green)
+				.foregroundStyle(item.spendings > budget.dailyBudget ? .red : .green)
 			}
 			.chartXAxis(.hidden)
 			.chartYAxis {

@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct ForecastChartView: View {
-	var chartData: [ChartData]
+	var budget: Budget
 	
     var body: some View {
 		Group {
@@ -19,7 +19,7 @@ struct ForecastChartView: View {
 				.padding(.bottom, 20)
 				.offset(x: -3)
 			
-			Chart(chartData, id: \.day) { item in
+			Chart(budget.days, id: \.day) { item in
 				LineMark(
 					x: .value("Day", item.day, unit: .day),
 					y: .value("Budget", item.budgeted),

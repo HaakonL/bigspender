@@ -27,19 +27,13 @@ struct MainChartView: View {
 			HStack(spacing: 0) {
 				VStack(alignment: .leading, spacing: 0) {
 					
-					if currentChart == .forecast {
-						let data = overviewViewModel.getProjectedResult(budget: 7500, data: overviewViewModel.marchData)
-						ForecastChartView(chartData: data)
-					}
-					
-					if currentChart == .daily {
-						let data = overviewViewModel.februaryData
-						DailyChartView(chartData: data)
-					}
-					
-					if currentChart == .tags {
-						let data = overviewViewModel.categoryData
-						TagChartView(chartData: data)
+					switch currentChart {
+						case .forecast:
+							ForecastChartView(budget: overviewViewModel.getProjectedResult(budget: 7500, data: overviewViewModel.marchData))
+						case .daily:
+							DailyChartView(budget: Budget(totalBudget: 7500, dailyBudget: 242, days: overviewViewModel.februaryData))
+						case .tags:
+							TagChartView(budget: Budget(totalBudget: 7500, dailyBudget: 242, days: overviewViewModel.categoryData))
 					}
 				}
 				.padding([.leading, .bottom], 15)

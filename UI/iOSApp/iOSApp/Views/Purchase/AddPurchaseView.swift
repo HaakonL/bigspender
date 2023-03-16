@@ -61,7 +61,9 @@ struct AddPurchaseView: View {
 					
 				Button {
 					Task {
-						await viewModel.savePurchase(amount: amount, title: titleText, when: purchaseDate, tags: ["default"])
+						if await viewModel.savePurchase(amount: amount, title: titleText, when: purchaseDate, tags: ["default"]) {
+							dismiss()
+						}
 					}
 				} label: {
 					Text("Save")

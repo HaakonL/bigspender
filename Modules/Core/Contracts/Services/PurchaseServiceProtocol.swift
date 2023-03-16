@@ -10,5 +10,5 @@ import Foundation
 public protocol PurchaseServiceProtocol {
 	func getPurchases(by period: Period) async -> [Purchase]?
 	func getPurchases(by date: Date) async -> [Purchase]?
-	func savePurchase(_ purchase: Purchase) async -> Purchase?
+	func savePurchase(_ purchase: Purchase) async -> Bool?
 }

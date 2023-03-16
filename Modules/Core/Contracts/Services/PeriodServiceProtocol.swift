@@ -9,5 +9,5 @@ import Foundation
 
 public protocol PeriodServiceProtocol {
 	func getPeriod(by date: Date) async -> Period?
-	func savePeriod(_ period: Period) async -> Period?
+	func savePeriod(_ period: Period) async -> Bool?
 }

@@ -9,5 +9,5 @@ import Foundation
 
 public protocol PeriodRepositoryProtocol {
 	func get(by date: Date) async -> Result<Period?, Error>
-	func save(_ period: Period) async -> Result<Period?, Error>
+	func save(_ period: Period) async -> Result<Bool, Error>
 }

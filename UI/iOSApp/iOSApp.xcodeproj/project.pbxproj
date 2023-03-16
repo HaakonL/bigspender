@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F816558E29BC7E020050A453 /* Bootstrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F816558D29BC7E020050A453 /* Bootstrap.framework */; };
 		F816558F29BC7E020050A453 /* Bootstrap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F816558D29BC7E020050A453 /* Bootstrap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F81655B829C2FD380050A453 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655B729C2FD380050A453 /* Budget.swift */; };
 		F858F7EA29990A5500EDC251 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F7E929990A5500EDC251 /* OverviewViewModel.swift */; };
 		F858F7EC29990A6300EDC251 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F7EB29990A6300EDC251 /* OverviewView.swift */; };
 		F8704AAB29B38ABA00063653 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704AAA29B38ABA00063653 /* AppFont.swift */; };
@@ -96,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		F816558D29BC7E020050A453 /* Bootstrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bootstrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F81655B729C2FD380050A453 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		F858F79129944E2D00EDC251 /* iOSApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSApp.entitlements; sourceTree = "<group>"; };
 		F858F7E929990A5500EDC251 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		F858F7EB29990A6300EDC251 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				F8E32D3229B715DB00D8C4B9 /* DailyChartView.swift */,
 				F8E32D3429B7164800D8C4B9 /* TagChartView.swift */,
 				F8704ADC29B4A01300063653 /* ChartData.swift */,
+				F81655B729C2FD380050A453 /* Budget.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				F8C1BE0629BB07FF0095BEAA /* StringExtensions.swift in Sources */,
 				F8704AAB29B38ABA00063653 /* AppFont.swift in Sources */,
 				F8E32D1929B632CF00D8C4B9 /* HeaderView.swift in Sources */,
+				F81655B829C2FD380050A453 /* Budget.swift in Sources */,
 				F8E32D2B29B7109100D8C4B9 /* InfoBoxesView.swift in Sources */,
 				F8886274298712730000B0E9 /* Main.swift in Sources */,
 				F8E32D1329B54A2000D8C4B9 /* TagsView.swift in Sources */,

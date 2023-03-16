@@ -14,10 +14,11 @@ public class AddPurchaseViewModel: ObservableObject {
 	@Injected private var tagsService: TagServiceProtocol
 	@Published public private(set) var tags: [String]?
 	
-	public func savePurchase(amount: String, title: String, when: Date, tags: [String]) async {
+	public func savePurchase(amount: String, title: String, when: Date, tags: [String]) async -> Bool {
 		let intAmount = amount.isEmpty ? 0 : Int(amount)
 		var purchase = Purchase(id: "", amount: intAmount ?? 0, title: title, when: when.noon(), tags: tags)
-		_ = await purchaseService.savePurchase(purchase)
+		let result = await purchaseService.savePurchase(purchase)
+		return result != nil
 	}
 	
 	public func loadTags() async {

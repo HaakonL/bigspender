@@ -9,7 +9,7 @@ import SwiftUI
 import Charts
 
 struct TagChartView: View {
-	var chartData: [ChartData]
+	var budget: Budget
 	
     var body: some View {
 		Group {
@@ -19,7 +19,7 @@ struct TagChartView: View {
 				.padding(.bottom, 20)
 				.offset(x: -3)
 			
-			Chart(chartData, id: \.day) { item in
+			Chart(budget.days, id: \.day) { item in
 				BarMark(
 					x: .value("Tag", item.tag),
 					y: .value("Spent", item.spendings)

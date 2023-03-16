@@ -36,11 +36,11 @@ public class PurchaseService: PurchaseServiceProtocol {
 		}
 	}
 	
-	public func savePurchase(_ purchase: Purchase) async -> Purchase? {
+	public func savePurchase(_ purchase: Purchase) async -> Bool? {
 		let result = await repository.save(purchase)
 		switch result {
-			case .success(let purchase):
-				return purchase
+			case .success(let status):
+				return status
 			case .failure(let error):
 				print(error)
 				return nil
