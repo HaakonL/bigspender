@@ -10,27 +10,37 @@ import Core
 import RealmSwift
 
 public class PurchaseDataModel: Object, RepositoryObject {
-	@Persisted(primaryKey: true) var _id: ObjectId
+	@Persisted(primaryKey: true) var id: UUID
 	@Persisted public var amount: Int = 0
 	@Persisted public var title: String = ""
 	@Persisted public var when: Date = Date()
-	@Persisted public var tags: List<TagDataModel> = List<TagDataModel>()
+	@Persisted public var tag: TagDataModel?
 
 	public convenience init(_ model: Purchase) {
 		self.init()
+		self.id = model.id
 		self.amount = model.amount
 		self.title = model.title
 		self.when = model.when
-		self.tags.append(objectsIn: model.tags.compactMap {TagDataModel($0)})
+		if let tag = model.tag {
+			self.tag = TagDataModel(tag)
+		}
 	}
 	
 	public func toDomainObject() -> DomainObject {
 		return Purchase(
-			id: _id.stringValue,
+			id: id,
 			amount: amount,
 			title: title,
 			when: when,
-			tags: Array(self.tags.compactMap {Tag(id: $0._id.description, tag: $0.tag)})
+			tag: getTag()
 		)
+	}
+	
+	private func getTag() -> Tag? {
+		if let tag = tag {
+			return Tag(id: tag.id, title: tag.title, isDefault: tag.isDefault)
+		}
+		return nil
 	}
 }

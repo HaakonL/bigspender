@@ -12,38 +12,47 @@ import Core
 struct TagsView: View {
 	var tags: [Tag]
 	var tagWasTapped: ((Tag) -> Void)?
-	@State var isSelected = false
-	@State var selectedTags: [Tag] = []
-	
-	func updateSelected(_ tag: Tag) {
-		if selectedTags.contains(tag) {
-			selectedTags = selectedTags.filter { $0 != tag }
-		} else {
-			selectedTags.append(tag)
-		}
-	}
-	
+
+	@State var selectedTag: Tag?
+		
     var body: some View {
 		VStack(alignment: .leading) {
+			HStack {
+				Text("Tags")
+					.foregroundColor(.white)
+					.font(AppFont.smallTitle)
+				
+				Button {
+					//
+				} label: {
+					Image(systemName: "plus")
+				}
+			}
+			
 			WrappingHStack (id: \.self, alignment: .leading, horizontalSpacing: 10, verticalSpacing: 10) {
 				ForEach(tags, id: \.self) { tag in
 					Button {
-						withAnimation(nil) {
-							updateSelected(tag)
-						}
 						if tagWasTapped != nil {
+							withAnimation(nil) {
+								selectedTag = tag
+							}
 							tagWasTapped!(tag)
 						}
 					} label: {
-						Text("#\(tag.tag)")
+						Text("#\(tag.title)")
 							.padding(.horizontal, 8)
 							.padding(.vertical, 3)
-							.background(selectedTags.contains(tag) ? .regularOrange : .mediumBlue)
+							.background(selectedTag == tag ? .regularOrange : .mediumBlue)
 							.cornerRadius(5)
-							.foregroundColor(selectedTags.contains(tag) ? .white : .lightBlue)
+							.foregroundColor(selectedTag == tag ? .white : .lightBlue)
 							.font(AppFont.body)
 					}
 				}
+			}
+		}
+		.onAppear {
+			if tagWasTapped != nil {
+				selectedTag = tags.first { $0.isDefault == true }
 			}
 		}
     }
@@ -51,7 +60,7 @@ struct TagsView: View {
 
 struct TagsView_Previews: PreviewProvider {
     static var previews: some View {
-		let tags: [Tag] = [Tag(id: "abc", tag: "tagger")]
+		let tags: [Tag] = [Tag(id: UUID(), title: "tagger", isDefault: false)]
 		TagsView(tags: tags, tagWasTapped: nil)
     }
 }

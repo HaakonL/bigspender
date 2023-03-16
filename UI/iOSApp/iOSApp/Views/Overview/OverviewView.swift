@@ -30,10 +30,8 @@ struct OverviewView: View {
 						.padding(.top, 10)
 					
 					if let tags = viewModel.tags {
-						TagsView(tags: tags, tagWasTapped: { tag in
-							print(tag.tag)
-						})
-						.padding(.top, 10)
+						TagsView(tags: tags, tagWasTapped: nil)
+							.padding(.top, 10)
 					}
 					
 					Spacer()

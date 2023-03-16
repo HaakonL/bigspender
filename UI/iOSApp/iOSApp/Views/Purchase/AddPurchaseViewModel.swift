@@ -13,10 +13,11 @@ public class AddPurchaseViewModel: ObservableObject {
 	@Injected private var purchaseService: PurchaseServiceProtocol
 	@Injected private var tagsService: TagServiceProtocol
 	@Published public private(set) var tags: [Tag]?
+	@Published public var selectedTag: Tag?
 	
-	public func savePurchase(amount: String, title: String, when: Date, tags: [Tag]) async -> Bool {
+	public func savePurchase(amount: String, title: String, when: Date, tag: Tag?) async -> Bool {
 		let intAmount = amount.isEmpty ? 0 : Int(amount)
-		let purchase = Purchase(id: nil, amount: intAmount ?? 0, title: title, when: when.noon(), tags: tags)
+		let purchase = Purchase(id: nil, amount: intAmount ?? 0, title: title, when: when.noon(), tag: tag)
 		let result = await purchaseService.savePurchase(purchase)
 		return result != nil
 	}
@@ -25,6 +26,7 @@ public class AddPurchaseViewModel: ObservableObject {
 		if let tags = await tagsService.getAllTags() {
 			DispatchQueue.main.async {
 				self.tags = tags
+				self.selectedTag = tags.first { $0.isDefault == true }
 			}
 		}
 	}

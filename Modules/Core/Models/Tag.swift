@@ -8,11 +8,13 @@
 import Foundation
 
 public struct Tag: DomainObject, Identifiable, Hashable {
-	public let id: String?
-	public let tag: String
+	public let id: UUID
+	public let title: String
+	public let isDefault: Bool
 	
-	public init(id: String?, tag: String) {
-		self.id = id
-		self.tag = tag
+	public init(id: UUID?, title: String, isDefault: Bool) {
+		self.id = id ?? UUID()
+		self.title = title
+		self.isDefault = isDefault
 	}	
 }

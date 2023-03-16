@@ -32,9 +32,11 @@ public class OverviewViewModel: ObservableObject {
 			
 			// Make sure we have the default tag as a minimum
 			if allTags.isEmpty {
-				let tags = ["default", "groceries", "apparel", "dining", "entertainment", "travel", "transportation"]
+				_ = await tagService.saveTag(Tag(id: UUID(), title: "default", isDefault: true))
+				
+				let tags = ["groceries", "apparel", "dining", "entertainment", "travel", "transportation"]
 				for tag in tags {
-					_ = await tagService.saveTag(Tag(id: nil, tag: tag))
+					_ = await tagService.saveTag(Tag(id: UUID(), title: tag, isDefault: false))
 				}
 				
 				await loadTags()

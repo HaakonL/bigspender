@@ -10,21 +10,22 @@ import Core
 import RealmSwift
 
 public class TagDataModel: Object, RepositoryObject {
-	@Persisted(primaryKey: true) var _id: ObjectId
-	@Persisted public var tag: String = ""
+	@Persisted(primaryKey: true) var id: UUID
+	@Persisted public var title: String = ""
+	@Persisted public var isDefault: Bool = false
 	
 	public convenience init(_ model: Tag) {
 		self.init()
-		if let id = model.id, let objectId = try? ObjectId(string: id) {
-			self._id = objectId
-		}
-		self.tag = model.tag
+		self.id = model.id
+		self.title = model.title
+		self.isDefault = model.isDefault
 	}
 	
 	public func toDomainObject() -> DomainObject {
 		return Tag(
-			id: _id.stringValue,
-			tag: tag
+			id: id,
+			title: title,
+			isDefault: isDefault
 		)
 	}
 }
