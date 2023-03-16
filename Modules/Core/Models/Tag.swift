@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Tag: DomainObject {
+public struct Tag: DomainObject, Identifiable, Hashable {
 	public let id: String?
 	public let tag: String
 	

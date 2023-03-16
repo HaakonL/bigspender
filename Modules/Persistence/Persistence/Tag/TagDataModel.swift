@@ -15,6 +15,9 @@ public class TagDataModel: Object, RepositoryObject {
 	
 	public convenience init(_ model: Tag) {
 		self.init()
+		if let id = model.id, let objectId = try? ObjectId(string: id) {
+			self._id = objectId
+		}
 		self.tag = model.tag
 	}
 	

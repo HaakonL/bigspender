@@ -16,12 +16,15 @@ public class OverviewViewModel: ObservableObject {
 	@Published public private(set) var currentPeriod: Period?
 	@Published public private(set) var tags: [Tag]?
 	
-	public func loadData() async {
+	public func loadPeriod() async {
 		if let period = await periodService.getPeriod(by: Date()) {
 			DispatchQueue.main.async {
 				self.currentPeriod = period
 			}
 		}
+	}
+	
+	public func loadTags() async {
 		if let allTags = await tagService.getAllTags() {
 			DispatchQueue.main.async {
 				self.tags = allTags
@@ -29,12 +32,12 @@ public class OverviewViewModel: ObservableObject {
 			
 			// Make sure we have the default tag as a minimum
 			if allTags.isEmpty {
-				let tag = Tag(id: nil, tag: "default")
-				_ = await tagService.saveTag(tag)
-				
-				DispatchQueue.main.async {
-					self.tags = [tag]
+				let tags = ["default", "groceries", "apparel", "dining", "entertainment", "travel", "transportation"]
+				for tag in tags {
+					_ = await tagService.saveTag(Tag(id: nil, tag: tag))
 				}
+				
+				await loadTags()
 			}
 		}
 	}

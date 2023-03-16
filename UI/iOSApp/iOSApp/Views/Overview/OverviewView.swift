@@ -29,8 +29,12 @@ struct OverviewView: View {
 					InfoBoxesView()
 						.padding(.top, 10)
 					
-					TagsView(tags: viewModel.tags)
+					if let tags = viewModel.tags {
+						TagsView(tags: tags, tagWasTapped: { tag in
+							print(tag.tag)
+						})
 						.padding(.top, 10)
+					}
 					
 					Spacer()
 				}
@@ -41,7 +45,8 @@ struct OverviewView: View {
 			.padding(.horizontal)
 		}
 		.task {
-			await viewModel.loadData()
+			await viewModel.loadPeriod()
+			await viewModel.loadTags()
 		}
 	}
 }

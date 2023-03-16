@@ -14,14 +14,14 @@ public class PurchaseDataModel: Object, RepositoryObject {
 	@Persisted public var amount: Int = 0
 	@Persisted public var title: String = ""
 	@Persisted public var when: Date = Date()
-	@Persisted public var tags: List<String> = List<String>()
-		
+	@Persisted public var tags: List<TagDataModel> = List<TagDataModel>()
+
 	public convenience init(_ model: Purchase) {
 		self.init()
 		self.amount = model.amount
 		self.title = model.title
 		self.when = model.when
-		self.tags.append(objectsIn: model.tags)
+		self.tags.append(objectsIn: model.tags.compactMap {TagDataModel($0)})
 	}
 	
 	public func toDomainObject() -> DomainObject {
@@ -30,7 +30,7 @@ public class PurchaseDataModel: Object, RepositoryObject {
 			amount: amount,
 			title: title,
 			when: when,
-			tags: Array(self.tags)
+			tags: Array(self.tags.compactMap {Tag(id: $0._id.description, tag: $0.tag)})
 		)
 	}
 }

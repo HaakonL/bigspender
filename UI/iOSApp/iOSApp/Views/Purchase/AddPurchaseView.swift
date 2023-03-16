@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 import Resolver
+import Core
 
 struct AddPurchaseView: View {
 	@Environment(\.dismiss) var dismiss
@@ -16,6 +17,7 @@ struct AddPurchaseView: View {
 	@State private var titleText: String = ""
 	@State private var purchaseDate: Date = Date().noon()
 	@State private var amount: String = ""
+	@State private var selectedTags: [Tag] = []
 	
 	var body: some View {
 		ZStack {
@@ -58,10 +60,27 @@ struct AddPurchaseView: View {
 						}
 						self.amount = self.amount.removePrefix("0")
 					}
+				
+				if let tags = viewModel.tags {
+					TagsView(tags: tags, tagWasTapped: { tapped in
+						let existing = selectedTags.first { $0.id == tapped.id }
+						if let existing = existing {
+							selectedTags = selectedTags.filter { $0.id != existing.id }
+							print("Removing tag \(existing.tag)")
+						} else {
+							selectedTags.append(tapped)
+							print("Adding tag \(tapped.tag)")
+						}
+						if selectedTags.isEmpty {
+							let defaultTag = tags.first { $0.tag == "default" }
+							selectedTags.append(defaultTag!)
+						}
+					})
+				}
 					
 				Button {
 					Task {
-						if await viewModel.savePurchase(amount: amount, title: titleText, when: purchaseDate, tags: ["default"]) {
+						if await viewModel.savePurchase(amount: amount, title: titleText, when: purchaseDate, tags: selectedTags) {
 							dismiss()
 						}
 					}

@@ -12,9 +12,9 @@ public struct Purchase: DomainObject {
 	public let amount: Int
 	public let title: String
 	public let when: Date
-	public let tags: [String]
+	public let tags: [Tag]
 	
-	public init(id: String?, amount: Int, title: String, when: Date, tags: [String]) {
+	public init(id: String?, amount: Int, title: String, when: Date, tags: [Tag]) {
 		self.id = id
 		self.amount = amount
 		self.title = title

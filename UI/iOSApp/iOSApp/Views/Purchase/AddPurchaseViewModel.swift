@@ -12,11 +12,11 @@ import Resolver
 public class AddPurchaseViewModel: ObservableObject {
 	@Injected private var purchaseService: PurchaseServiceProtocol
 	@Injected private var tagsService: TagServiceProtocol
-	@Published public private(set) var tags: [String]?
+	@Published public private(set) var tags: [Tag]?
 	
-	public func savePurchase(amount: String, title: String, when: Date, tags: [String]) async -> Bool {
+	public func savePurchase(amount: String, title: String, when: Date, tags: [Tag]) async -> Bool {
 		let intAmount = amount.isEmpty ? 0 : Int(amount)
-		var purchase = Purchase(id: "", amount: intAmount ?? 0, title: title, when: when.noon(), tags: tags)
+		let purchase = Purchase(id: nil, amount: intAmount ?? 0, title: title, when: when.noon(), tags: tags)
 		let result = await purchaseService.savePurchase(purchase)
 		return result != nil
 	}
@@ -24,7 +24,7 @@ public class AddPurchaseViewModel: ObservableObject {
 	public func loadTags() async {
 		if let tags = await tagsService.getAllTags() {
 			DispatchQueue.main.async {
-				self.tags = tags.map { $0.tag }
+				self.tags = tags
 			}
 		}
 	}

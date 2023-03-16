@@ -54,7 +54,7 @@ extension RealmRepository {
 		do {
 			let db = try await Realm()
 			try db.write {
-				db.add(entity)
+				db.add(entity, update: Realm.UpdatePolicy.modified)
 			}
 			return .success(true)
 		} catch(let error) {
