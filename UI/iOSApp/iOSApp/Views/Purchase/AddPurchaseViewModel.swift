@@ -18,16 +18,12 @@ public class AddPurchaseViewModel: ObservableObject {
 	public func savePurchase(amount: String, title: String, when: Date, tag: Tag?) async -> Bool {
 		let intAmount = amount.isEmpty ? 0 : Int(amount)
 		let purchase = Purchase(id: nil, amount: intAmount ?? 0, title: title, when: when.noon(), tag: tag)
-		let result = await purchaseService.savePurchase(purchase)
-		return result != nil
-	}
-	
-	public func loadTags() async {
-		if let tags = await tagsService.getAllTags() {
-			DispatchQueue.main.async {
-				self.tags = tags
-				self.selectedTag = tags.first { $0.isDefault == true }
-			}
+		let isSuccess = await purchaseService.savePurchase(purchase) ?? false
+		
+		if isSuccess {
+			NotificationCenter.default.post(name: .addPurchase, object: purchase, userInfo: nil)
 		}
+		
+		return isSuccess
 	}
 }

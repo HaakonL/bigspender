@@ -10,20 +10,16 @@ import Core
 import Resolver
 
 struct RootView: View {
-	@State var showAddPurchase = false
-	
     var body: some View {
 		ZStack {
 			Color.darkBlue.ignoresSafeArea()
 			
 			VStack(spacing: 0) {
 				HeaderView()
-				OverviewView(showAddPurchase: $showAddPurchase)
+				OverviewView()
 			}
 		}
-		.sheet(isPresented: $showAddPurchase) {
-			AddPurchaseView()
-		}
+		.colorScheme(.dark)
     }
 }
 

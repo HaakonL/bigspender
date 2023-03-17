@@ -48,7 +48,15 @@ class AppFont {
 	}
 	
 	public static var subtitleBold: Font {
-		return Font.custom(InterFont.bold, size: 20)
+		return Font.custom(InterFont.bold, size: 22)
+	}
+	
+	public static var mediumTitle: Font {
+		return Font.custom(InterFont.medium, size: 19)
+	}
+	
+	public static var mediumTitleBold: Font {
+		return Font.custom(InterFont.bold, size: 19)
 	}
 	
 	public static var smallTitle: Font {

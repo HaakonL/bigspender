@@ -19,7 +19,7 @@ extension RealmRepository {
 	public func get() async -> Result<[T], Error> {
 		do {
 			let db = try await Realm()
-			var objects = db.objects(T.self)
+			let objects = db.objects(T.self)
 			return .success(objects.compactMap{ $0 })
 		} catch (let error) {
 			return .failure(error)
@@ -39,10 +39,10 @@ extension RealmRepository {
 	}
 	
 	@MainActor
-	public func get(id: String) async -> Result<T?, Error> {
+	public func get(id: UUID) async -> Result<T?, Error> {
 		do {
 			let db = try await Realm()
-			let object = try db.object(ofType: T.self, forPrimaryKey: ObjectId(string: id))
+			let object = db.object(ofType: T.self, forPrimaryKey: id)
 			return .success(object)
 		} catch (let error) {
 			return .failure(error)
@@ -51,6 +51,19 @@ extension RealmRepository {
 	
 	@MainActor
 	public func save(_ entity: T) async -> Result<Bool, Error> {
+		do {
+			let db = try await Realm()
+			try db.write {
+				db.add(entity, update: Realm.UpdatePolicy.modified)
+			}
+			return .success(true)
+		} catch(let error) {
+			return .failure(error)
+		}
+	}
+	
+	@MainActor
+	public func save(_ entity: [T]) async -> Result<Bool, Error> {
 		do {
 			let db = try await Realm()
 			try db.write {

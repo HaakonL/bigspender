@@ -18,5 +18,6 @@ extension Resolver: ResolverRegistering {
 	public static func bootstrapApp() {
 		register { OverviewViewModel() }
 		register { AddPurchaseViewModel() }
+		register { TagsViewModel() }.scope(.application)
 	}
 }

@@ -17,6 +17,7 @@ struct AddPurchaseView: View {
 	@State private var titleText: String = ""
 	@State private var purchaseDate: Date = Date().noon()
 	@State private var amount: String = ""
+	@State private var selectedCategory: Tag?
 	
 	var body: some View {
 		ZStack {
@@ -24,32 +25,33 @@ struct AddPurchaseView: View {
 			
 			VStack(spacing: 20) {
 				Text("Add purchase")
-					.font(AppFont.largeTitle)
+					.font(AppFont.title)
+					.foregroundColor(.white)
 				
-				TextField("Description, ie. Foo Bar", text: $titleText)
+				let descriptionPrompt: Text = Text("Description, ie. Foo Bar")
+					.font(AppFont.body)
+					.foregroundColor(.placeholderWhite)
+				
+				TextField("", text: $titleText, prompt: descriptionPrompt)
 					.textFieldStyle(.plain)
 					.padding(15)
 					.accentColor(.regularOrange)
-					.background(.lightBlue)
-					.foregroundColor(.white)
+					.background(.mediumBlue)
+					.foregroundColor(.black)
 					.cornerRadius(10)
 					.shadow(color: .dropShadow, radius: 4, x: 4, y: 4)
 				
-				DatePicker("Purchase date", selection: $purchaseDate, displayedComponents: .date)
-					.datePickerStyle(.graphical)
-					.padding(15)
-					.accentColor(.regularOrange)
-					.background(.lightBlue)
-					.foregroundColor(.white)
-					.clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+				let amountPrompt: Text = Text("Amount spent")
+					.font(AppFont.body)
+					.foregroundColor(.placeholderWhite)
 				
-				TextField("Amount", text: $amount)
+				TextField("", text: $amount, prompt: amountPrompt)
 					.keyboardType(.numberPad)
 					.textFieldStyle(.plain)
 					.padding(15)
 					.accentColor(.regularOrange)
-					.background(.lightBlue)
-					.foregroundColor(.white)
+					.background(.mediumBlue)
+					.foregroundColor(.black)
 					.cornerRadius(10)
 					.shadow(color: .dropShadow, radius: 4, x: 4, y: 4)
 					.onReceive(Just(amount)) { newValue in
@@ -60,15 +62,28 @@ struct AddPurchaseView: View {
 						self.amount = self.amount.removePrefix("0")
 					}
 				
-				if let tags = viewModel.tags {
-					TagsView(tags: tags, tagWasTapped: { tapped in
-						viewModel.selectedTag = tapped
-					})
+				DatePicker(selection: $purchaseDate, displayedComponents: .date) {
+					Text("Purchase date")
+						.font(AppFont.body)
+						.foregroundColor(.placeholderWhite)
 				}
+				.datePickerStyle(.compact)
+				.colorScheme(.dark)
+				.font(AppFont.body)
+				.padding(.horizontal, 15)
+				.padding(.vertical, 10)
+				.accentColor(.regularBlue)
+				.background(.mediumBlue)
+				.foregroundColor(.placeholderWhite)
+				.clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+				
+				TagsView(tagWasTapped: { tapped in
+					selectedCategory = tapped
+				}, addTagEnabled: true)
 					
 				Button {
 					Task {
-						if await viewModel.savePurchase(amount: amount, title: titleText, when: purchaseDate, tag: viewModel.selectedTag) {
+						if await viewModel.savePurchase(amount: amount, title: titleText, when: purchaseDate, tag: selectedCategory) {
 							dismiss()
 						}
 					}
@@ -76,6 +91,7 @@ struct AddPurchaseView: View {
 					Text("Save")
 				}
 				.buttonStyle(.borderedProminent)
+				.accentColor(.regularBlue)
 
 				Spacer()
 				
@@ -86,12 +102,7 @@ struct AddPurchaseView: View {
 				}
 				.tint(.regularOrange)
 			}
-			.font(AppFont.body)
-			.foregroundColor(.white)
 			.padding()
-			.task {
-				await viewModel.loadTags()
-			}
 		}
 	}
 }

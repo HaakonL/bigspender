@@ -16,6 +16,7 @@ extension Color {
 	static let regularOrange = Color("orange")
 	static let mediumBlue = Color("medium-blue")
 	static let dullBlue = Color("dull-blue")
+	static let placeholderWhite = Color(red: 1, green: 1, blue: 1, opacity: 0.5)
 }
 
 extension ShapeStyle where Self == Color {
@@ -27,4 +28,5 @@ extension ShapeStyle where Self == Color {
 	static var regularOrange: Color { .regularOrange }
 	static var mediumBlue: Color { .mediumBlue }
 	static var dullBlue: Color { .dullBlue }
+	static var placeholderWhite: Color { .placeholderWhite }
 }

@@ -13,6 +13,7 @@ struct Main: App {
 	var body: some Scene {
 		WindowGroup {
 			RootView()
+				.preferredColorScheme(.dark)
 				.onAppear { _ = HapticManager.shared }
 		}
 	}

@@ -10,36 +10,27 @@ import Resolver
 import Core
 
 public class OverviewViewModel: ObservableObject {
-	@Injected private var periodService: PeriodServiceProtocol
-	@Injected private var tagService: TagServiceProtocol
-	
+	@Injected private var periodService: PeriodServiceProtocol	
 	@Published public private(set) var currentPeriod: Period?
-	@Published public private(set) var tags: [Tag]?
+	
+	/*init() {
+		NotificationCenter.default.addObserver(self, selector: #selector(purchaseWasAdded), name: .addPurchase, object: nil)
+	}
+	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
+	@objc private func purchaseWasAdded() {
+		Task {
+			await loadPeriod()
+		}
+	}*/
 	
 	public func loadPeriod() async {
 		if let period = await periodService.getPeriod(by: Date()) {
 			DispatchQueue.main.async {
 				self.currentPeriod = period
-			}
-		}
-	}
-	
-	public func loadTags() async {
-		if let allTags = await tagService.getAllTags() {
-			DispatchQueue.main.async {
-				self.tags = allTags
-			}
-			
-			// Make sure we have the default tag as a minimum
-			if allTags.isEmpty {
-				_ = await tagService.saveTag(Tag(id: UUID(), title: "default", isDefault: true))
-				
-				let tags = ["groceries", "apparel", "dining", "entertainment", "travel", "transportation"]
-				for tag in tags {
-					_ = await tagService.saveTag(Tag(id: UUID(), title: tag, isDefault: false))
-				}
-				
-				await loadTags()
 			}
 		}
 	}
@@ -52,7 +43,7 @@ public class OverviewViewModel: ObservableObject {
 		
 		var reducedBudget = budget
 		var reducedAverage = budget
-		var budget = Budget(totalBudget: budget, dailyBudget: budgetAverage)
+		let budget = Budget(totalBudget: budget, dailyBudget: budgetAverage)
 		
 		for dataPoint in data {
 			let calendarDate = Calendar.current.dateComponents([.day], from: dataPoint.day)

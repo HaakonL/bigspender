@@ -11,7 +11,6 @@
 		F81655A329BC94FF0050A453 /* PurchaseRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655A229BC94FF0050A453 /* PurchaseRepositoryProtocol.swift */; };
 		F81655A529BC95180050A453 /* PeriodRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655A429BC95180050A453 /* PeriodRepositoryProtocol.swift */; };
 		F81655A929BD253A0050A453 /* DomainObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655A829BD253A0050A453 /* DomainObject.swift */; };
-		F81655AD29BDC43D0050A453 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655AC29BDC43D0050A453 /* Repository.swift */; };
 		F81655AF29BDC48D0050A453 /* RepositoryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655AE29BDC48D0050A453 /* RepositoryObject.swift */; };
 		F847F141296F19AC009D9FA1 /* DatabaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = F847F140296F19AC009D9FA1 /* DatabaseError.swift */; };
 		F861668229B3535500526A17 /* PurchaseServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F861668129B3535500526A17 /* PurchaseServiceProtocol.swift */; };
@@ -28,7 +27,6 @@
 		F81655A229BC94FF0050A453 /* PurchaseRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseRepositoryProtocol.swift; sourceTree = "<group>"; };
 		F81655A429BC95180050A453 /* PeriodRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodRepositoryProtocol.swift; sourceTree = "<group>"; };
 		F81655A829BD253A0050A453 /* DomainObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainObject.swift; sourceTree = "<group>"; };
-		F81655AC29BDC43D0050A453 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		F81655AE29BDC48D0050A453 /* RepositoryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryObject.swift; sourceTree = "<group>"; };
 		F847F140296F19AC009D9FA1 /* DatabaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseError.swift; sourceTree = "<group>"; };
 		F861668129B3535500526A17 /* PurchaseServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseServiceProtocol.swift; sourceTree = "<group>"; };
@@ -58,7 +56,6 @@
 				F81655A029BC94D50050A453 /* TagRepositoryProtocol.swift */,
 				F81655A229BC94FF0050A453 /* PurchaseRepositoryProtocol.swift */,
 				F81655A429BC95180050A453 /* PeriodRepositoryProtocol.swift */,
-				F81655AC29BDC43D0050A453 /* Repository.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -210,7 +207,6 @@
 				F8D9B4CA296DBFB300DAE106 /* PeriodServiceProtocol.swift in Sources */,
 				F88862B329875B0B0000B0E9 /* Tag.swift in Sources */,
 				F81655A329BC94FF0050A453 /* PurchaseRepositoryProtocol.swift in Sources */,
-				F81655AD29BDC43D0050A453 /* Repository.swift in Sources */,
 				F81655A529BC95180050A453 /* PeriodRepositoryProtocol.swift in Sources */,
 				F861668429B3536300526A17 /* TagServiceProtocol.swift in Sources */,
 				F81655A129BC94D50050A453 /* TagRepositoryProtocol.swift in Sources */,

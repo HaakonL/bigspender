@@ -12,7 +12,7 @@ import Core
 
 struct OverviewView: View {
 	@ObservedObject private var viewModel: OverviewViewModel = Resolver.resolve()
-	@Binding var showAddPurchase: Bool
+	@State var showAddPurchase = false
 	
     var body: some View {
 		ZStack {
@@ -29,10 +29,8 @@ struct OverviewView: View {
 					InfoBoxesView()
 						.padding(.top, 10)
 					
-					if let tags = viewModel.tags {
-						TagsView(tags: tags, tagWasTapped: nil)
-							.padding(.top, 10)
-					}
+					TagsView(tagWasTapped: nil, addTagEnabled: false)
+						.padding(.top, 10)
 					
 					Spacer()
 				}
@@ -40,11 +38,14 @@ struct OverviewView: View {
 				AddPurchaseButton(showAddPurchase: $showAddPurchase)
 					.padding(.top, 10)
 			}
+			//.layoutPriority(viewModel.refreshCounter)
 			.padding(.horizontal)
 		}
 		.task {
 			await viewModel.loadPeriod()
-			await viewModel.loadTags()
+		}
+		.sheet(isPresented: $showAddPurchase) {
+			AddPurchaseView()
 		}
 	}
 }
@@ -53,7 +54,7 @@ struct SpendingView_Previews: PreviewProvider {
     static var previews: some View {
 		ZStack {
 			Color.darkBlue.ignoresSafeArea()
-			OverviewView(showAddPurchase: .constant(false))
+			OverviewView()
 		}
     }
 }
