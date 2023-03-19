@@ -5,19 +5,13 @@
 //  Created by Haakon Langaas Lageng on 06/03/2023.
 //
 import SwiftUI
+import Resolver
 
 struct HeaderView: View {
 	
-	@State private var currentPeriod: Date = Date()
+	@ObservedObject private var globalViewModel: GlobalViewModel = Resolver.resolve()
 	@State private var showSettingsView: Bool = false
 	@State private var showMenuView: Bool = false
-	
-	private var periodName: String {
-		var calendar = Calendar.current
-		calendar.locale = Locale(identifier: "en_US_POSIX")
-		
-		return "\(currentPeriod.monthSymbol(using: calendar).capitalized) \(Calendar.current.component(.year, from: currentPeriod))"
-	}
 	
 	var body: some View {
 		VStack(spacing: 10) {
@@ -55,22 +49,22 @@ struct HeaderView: View {
 				Spacer()
 				
 				Button(action: {
-					currentPeriod = currentPeriod.adding(.month, value: -1)
+					globalViewModel.previousPeriod()
 				}, label: {
 					Image("left")
 				})
 				
 				Button(action: {
-					currentPeriod = Date()
+					globalViewModel.resetPeriod()
 				}, label: {
-					Text("\(periodName)")
+					Text("\(globalViewModel.monthAndYear.capitalized)")
 						.font(AppFont.body)
 						.foregroundColor(.white)
 				})
 				.frame(width: 200)
 				
 				Button(action: {
-					currentPeriod = currentPeriod.adding(.month, value: 1)
+					globalViewModel.nextPeriod()
 				}, label: {
 					Image("right")
 				})

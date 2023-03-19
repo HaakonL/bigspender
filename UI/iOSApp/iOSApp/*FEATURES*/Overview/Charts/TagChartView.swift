@@ -7,13 +7,16 @@
 
 import SwiftUI
 import Charts
+import Resolver
 
 struct TagChartView: View {
+	@ObservedObject private var globalViewModel: GlobalViewModel = Resolver.resolve()
+	
 	var budget: Budget
 	
     var body: some View {
 		Group {
-			Text("Spendings this period by tag")
+			Text("Spendings in \(globalViewModel.month) by tag")
 				.font(AppFont.body)
 				.foregroundColor(.lightBlue)
 				.padding(.bottom, 20)

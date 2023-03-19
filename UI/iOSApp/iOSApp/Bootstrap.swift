@@ -19,5 +19,6 @@ extension Resolver: ResolverRegistering {
 		register { OverviewViewModel() }
 		register { AddPurchaseViewModel() }
 		register { TagsViewModel() }.scope(.application)
+		register { GlobalViewModel() }.scope(.application)
 	}
 }

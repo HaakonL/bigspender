@@ -16,6 +16,7 @@
 		F85DAEED29C473FB009AA73F /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEC29C473FB009AA73F /* NotificationExtensions.swift */; };
 		F85DAEEF29C6F676009AA73F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEE29C6F676009AA73F /* SettingsView.swift */; };
 		F85DAEF129C6F695009AA73F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF029C6F695009AA73F /* MenuView.swift */; };
+		F85DAEF329C6FC68009AA73F /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF229C6FC68009AA73F /* GlobalViewModel.swift */; };
 		F8704AAB29B38ABA00063653 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704AAA29B38ABA00063653 /* AppFont.swift */; };
 		F8704ABF29B38C2700063653 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8704AAD29B38C2700063653 /* Inter-BoldItalic.ttf */; };
 		F8704AC029B38C2700063653 /* Inter-Light-BETA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8704AAE29B38C2700063653 /* Inter-Light-BETA.ttf */; };
@@ -109,6 +110,7 @@
 		F85DAEEC29C473FB009AA73F /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
 		F85DAEEE29C6F676009AA73F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F85DAEF029C6F695009AA73F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		F85DAEF229C6FC68009AA73F /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
 		F8704AAA29B38ABA00063653 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F8704AAD29B38C2700063653 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		F8704AAE29B38C2700063653 /* Inter-Light-BETA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light-BETA.ttf"; sourceTree = "<group>"; };
@@ -190,14 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F858F79E2994550F00EDC251 /* Views */ = {
+		F858F79E2994550F00EDC251 /* *FEATURES* */ = {
 			isa = PBXGroup;
 			children = (
 				F8E32D1729B632BC00D8C4B9 /* Global */,
 				F858F7E829990A3900EDC251 /* Overview */,
 				F8C1BDFD29B9BE190095BEAA /* Purchase */,
 			);
-			path = Views;
+			path = "*FEATURES*";
 			sourceTree = "<group>";
 		};
 		F858F7A82995A05400EDC251 /* Utilities */ = {
@@ -277,7 +279,7 @@
 			isa = PBXGroup;
 			children = (
 				F858F79129944E2D00EDC251 /* iOSApp.entitlements */,
-				F858F79E2994550F00EDC251 /* Views */,
+				F858F79E2994550F00EDC251 /* *FEATURES* */,
 				F888629F298712B10000B0E9 /* Assets */,
 				F8C1BE0429BB07DA0095BEAA /* Extensions */,
 				F858F7A82995A05400EDC251 /* Utilities */,
@@ -361,6 +363,7 @@
 				F8C1BE0029BA37F70095BEAA /* FidgetTextView.swift */,
 				F85DAEEE29C6F676009AA73F /* SettingsView.swift */,
 				F85DAEF029C6F695009AA73F /* MenuView.swift */,
+				F85DAEF229C6FC68009AA73F /* GlobalViewModel.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -565,6 +568,7 @@
 				F858F7EA29990A5500EDC251 /* OverviewViewModel.swift in Sources */,
 				F8E32D2929B7106100D8C4B9 /* AddPurchaseView.swift in Sources */,
 				F8886276298712730000B0E9 /* RootView.swift in Sources */,
+				F85DAEF329C6FC68009AA73F /* GlobalViewModel.swift in Sources */,
 				F8704AD729B4770D00063653 /* ColorExtensions.swift in Sources */,
 				F8E32D2F29B7127F00D8C4B9 /* TextualStatusView.swift in Sources */,
 				F8E32D2629B70C2800D8C4B9 /* MainChartView.swift in Sources */,

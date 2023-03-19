@@ -7,13 +7,16 @@
 
 import SwiftUI
 import Charts
+import Resolver
 
 struct ForecastChartView: View {
+	@ObservedObject private var globalViewModel: GlobalViewModel = Resolver.resolve()
+	
 	var budget: Budget
 	
     var body: some View {
 		Group {
-			Text("Forecast based on spendings so far")
+			Text("\(globalViewModel.month.capitalized) forecast")
 				.font(AppFont.body)
 				.foregroundColor(.lightBlue)
 				.padding(.bottom, 20)

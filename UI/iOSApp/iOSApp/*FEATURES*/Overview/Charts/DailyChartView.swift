@@ -7,13 +7,15 @@
 
 import SwiftUI
 import Charts
+import Resolver
 
 struct DailyChartView: View {
+	@ObservedObject private var globalViewModel: GlobalViewModel = Resolver.resolve()
 	var budget: Budget
 	
     var body: some View {
 		Group {
-			Text("Spendings this period per day")
+			Text("Spendings in \(globalViewModel.month) per day")
 				.font(AppFont.body)
 				.foregroundColor(.lightBlue)
 				.padding(.bottom, 20)
