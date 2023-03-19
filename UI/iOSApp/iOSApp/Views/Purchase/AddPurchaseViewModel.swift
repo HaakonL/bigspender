@@ -16,7 +16,7 @@ public class AddPurchaseViewModel: ObservableObject {
 	@Published public var selectedTag: Tag?
 	
 	public func savePurchase(amount: String, title: String, when: Date, tag: Tag?) async -> Bool {
-		let intAmount = amount.isEmpty ? 0 : Int(amount)
+		let intAmount = amount.isEmpty ? 0 : Int(amount)		
 		let purchase = Purchase(id: nil, amount: intAmount ?? 0, title: title, when: when.noon(), tag: tag)
 		let isSuccess = await purchaseService.savePurchase(purchase) ?? false
 		

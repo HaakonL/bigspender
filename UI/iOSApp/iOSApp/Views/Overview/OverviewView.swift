@@ -12,7 +12,7 @@ import Core
 
 struct OverviewView: View {
 	@ObservedObject private var viewModel: OverviewViewModel = Resolver.resolve()
-	@State var showAddPurchase = false
+	@State private var showAddPurchase = false
 	
     var body: some View {
 		ZStack {
@@ -29,7 +29,7 @@ struct OverviewView: View {
 					InfoBoxesView()
 						.padding(.top, 10)
 					
-					TagsView(tagWasTapped: nil, addTagEnabled: false)
+					TagsView(tagWasTapped: nil)
 						.padding(.top, 10)
 					
 					Spacer()
@@ -38,7 +38,6 @@ struct OverviewView: View {
 				AddPurchaseButton(showAddPurchase: $showAddPurchase)
 					.padding(.top, 10)
 			}
-			//.layoutPriority(viewModel.refreshCounter)
 			.padding(.horizontal)
 		}
 		.task {

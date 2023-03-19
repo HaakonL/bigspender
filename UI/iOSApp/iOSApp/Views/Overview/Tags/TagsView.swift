@@ -12,7 +12,6 @@ import Resolver
 
 struct TagsView: View {
 	var tagWasTapped: ((Tag) -> Void)?
-	var addTagEnabled = false
 	
 	@ObservedObject private var viewModel: TagsViewModel = Resolver.resolve()
 	
@@ -21,68 +20,24 @@ struct TagsView: View {
 		
     var body: some View {
 		VStack(alignment: .leading) {
-			HStack(alignment: .center) {
-				Text("Category")
-					.foregroundColor(.white)
-					.font(AppFont.mediumTitle)
-				
-				if addTagEnabled {
-					Button {
-						withAnimation {
-							showAddTagView.toggle()
+			WrappingHStack (id: \.self, alignment: .leading, horizontalSpacing: 10, verticalSpacing: 10) {
+				ForEach(viewModel.getTagsWithAddButton(), id: \.self) { tag in
+					if tag.title == "+" {
+						
+						Button {
+							withAnimation {
+								showAddTagView.toggle()
+							}
 							if !showAddTagView {
 								newCategoryText = ""
 							}
+						} label: {
+							Image(systemName: showAddTagView ? "minus.square" : "plus.square.on.square")
+								.accentColor(.lightBlue)
+								.font(AppFont.smallTitle)
+								.padding(.leading, 7)
 						}
-					} label: {
-						Image(systemName: showAddTagView ? "minus.square" : "plus.square.on.square")
-							.accentColor(.lightBlue)
-							.font(AppFont.smallTitle)
-							.padding(.leading, 7)
-							.animation(nil)
-					}
-				}
-			}
-			
-			VStack(alignment: .leading) {
-				HStack {
-					let prompt: Text = Text("Enter new category name")
-						.font(AppFont.body)
-						.foregroundColor(.placeholderWhite)
-					
-					TextField("", text: $newCategoryText, prompt: prompt)
-						.padding(.horizontal, 20)
-						.padding(.vertical, 10)
-						.background(RoundedRectangle(cornerRadius: 10).fill(.mediumBlue))
-					
-					Button {
-						Task {
-							let result = await viewModel.saveTag(title: newCategoryText)
-							if result {
-								newCategoryText = ""
-							}
-						}
-					} label: {
-						Text("Add")
-							.padding(.vertical, 3)
-					}
-					.font(AppFont.bodyBold)
-					.buttonStyle(.borderedProminent)
-					.accentColor(.mediumBlue)
-					.foregroundColor(.regularOrange)
-				}
-
-				Spacer()
-					.frame(height: 30)
-			}
-			.font(AppFont.body)
-			.foregroundColor(.white)
-			.frame(height: showAddTagView ? nil : 0, alignment: .top)
-			.clipped()
-			
-			if let tags = viewModel.tags, !tags.isEmpty {
-				WrappingHStack (id: \.self, alignment: .leading, horizontalSpacing: 10, verticalSpacing: 10) {
-					ForEach(tags, id: \.self) { tag in
+					} else {
 						Button {
 							if tagWasTapped != nil {
 								withAnimation(nil) {
@@ -102,11 +57,47 @@ struct TagsView: View {
 						.disabled(viewModel.selectedTag == tag || viewModel.canSelectTags == false)
 					}
 				}
-			} else if viewModel.canSelectTags {
-				Text("No categories, create one now?")
-					.foregroundColor(.lightBlue)
-					.font(AppFont.body)
 			}
+			
+			VStack(alignment: .leading) {
+				HStack(alignment: .bottom) {
+					let prompt: Text = Text("Enter new category name")
+						.font(AppFont.body)
+						.foregroundColor(.placeholderWhite)
+					
+					TextField("", text: $newCategoryText, prompt: prompt)
+						.padding(.horizontal, 20)
+						.padding(.vertical, 10)
+						.background(RoundedRectangle(cornerRadius: 10).fill(.mediumBlue))
+					
+					Button {
+						Task {
+							let result = await viewModel.saveTag(title: newCategoryText)
+							if result {
+								newCategoryText = ""
+								withAnimation {
+									showAddTagView.toggle()
+								}
+							}
+						}
+					} label: {
+						Text("Add")
+							.padding(.vertical, 3)
+					}
+					.font(AppFont.bodyBold)
+					.buttonStyle(.borderedProminent)
+					.accentColor(.mediumBlue)
+					.foregroundColor(.regularOrange)
+				}
+				
+				Spacer()
+					.frame(height: 30)
+			}
+			.padding(.top, 10)
+			.font(AppFont.body)
+			.foregroundColor(.white)
+			.frame(height: showAddTagView ? nil : 0, alignment: .bottom)
+			.clipped()
 		}
 		.onAppear {
 			viewModel.canSelectTags = tagWasTapped != nil
@@ -123,7 +114,7 @@ struct TagsView_Previews: PreviewProvider {
 			Color.black.ignoresSafeArea()
 			VStack {
 				Spacer().frame(height: 100)
-				TagsView(tagWasTapped: nil, addTagEnabled: true)
+				TagsView(tagWasTapped: nil)
 				Spacer()
 			}
 		}

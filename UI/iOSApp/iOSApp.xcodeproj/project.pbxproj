@@ -14,6 +14,8 @@
 		F858F7EC29990A6300EDC251 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F7EB29990A6300EDC251 /* OverviewView.swift */; };
 		F85DAEEB29C4527E009AA73F /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEA29C4527E009AA73F /* TagsViewModel.swift */; };
 		F85DAEED29C473FB009AA73F /* NotificationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEC29C473FB009AA73F /* NotificationExtensions.swift */; };
+		F85DAEEF29C6F676009AA73F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEE29C6F676009AA73F /* SettingsView.swift */; };
+		F85DAEF129C6F695009AA73F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF029C6F695009AA73F /* MenuView.swift */; };
 		F8704AAB29B38ABA00063653 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704AAA29B38ABA00063653 /* AppFont.swift */; };
 		F8704ABF29B38C2700063653 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8704AAD29B38C2700063653 /* Inter-BoldItalic.ttf */; };
 		F8704AC029B38C2700063653 /* Inter-Light-BETA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8704AAE29B38C2700063653 /* Inter-Light-BETA.ttf */; };
@@ -105,6 +107,8 @@
 		F858F7EB29990A6300EDC251 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		F85DAEEA29C4527E009AA73F /* TagsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsViewModel.swift; sourceTree = "<group>"; };
 		F85DAEEC29C473FB009AA73F /* NotificationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationExtensions.swift; sourceTree = "<group>"; };
+		F85DAEEE29C6F676009AA73F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		F85DAEF029C6F695009AA73F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F8704AAA29B38ABA00063653 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F8704AAD29B38C2700063653 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		F8704AAE29B38C2700063653 /* Inter-Light-BETA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light-BETA.ttf"; sourceTree = "<group>"; };
@@ -355,6 +359,8 @@
 				F8E32D1829B632CF00D8C4B9 /* HeaderView.swift */,
 				F8E32D1B29B6398F00D8C4B9 /* PeriodNavigator.swift */,
 				F8C1BE0029BA37F70095BEAA /* FidgetTextView.swift */,
+				F85DAEEE29C6F676009AA73F /* SettingsView.swift */,
+				F85DAEF029C6F695009AA73F /* MenuView.swift */,
 			);
 			path = Global;
 			sourceTree = "<group>";
@@ -570,7 +576,9 @@
 				F8886274298712730000B0E9 /* Main.swift in Sources */,
 				F8E32D1329B54A2000D8C4B9 /* TagsView.swift in Sources */,
 				F8E32D2029B7082E00D8C4B9 /* SectorShape.swift in Sources */,
+				F85DAEF129C6F695009AA73F /* MenuView.swift in Sources */,
 				F858F7EC29990A6300EDC251 /* OverviewView.swift in Sources */,
+				F85DAEEF29C6F676009AA73F /* SettingsView.swift in Sources */,
 				F85DAEED29C473FB009AA73F /* NotificationExtensions.swift in Sources */,
 				F85DAEEB29C4527E009AA73F /* TagsViewModel.swift in Sources */,
 				F888629E298712980000B0E9 /* Bootstrap.swift in Sources */,

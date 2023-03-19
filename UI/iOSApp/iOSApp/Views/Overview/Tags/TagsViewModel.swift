@@ -31,6 +31,15 @@ public class TagsViewModel: ObservableObject {
 		}
 	}*/
 	
+	public func getTagsWithAddButton() -> [Tag] {
+		let tag = Tag(id: UUID(), title: "+", isDefault: false)
+		if var tags = self.tags {
+			tags.append(tag)
+			return tags
+		}
+		return [tag]
+	}
+	
 	public func selectTag(id: UUID) {
 		if canSelectTags {
 			DispatchQueue.main.async {

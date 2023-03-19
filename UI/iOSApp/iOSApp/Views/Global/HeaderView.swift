@@ -7,20 +7,23 @@
 import SwiftUI
 
 struct HeaderView: View {
-	@State var showSettingsModal = false
-	@State var showMenuModal = false
+	
+	@State private var currentPeriod: Date = Date()
+	@State private var showSettingsView: Bool = false
+	@State private var showMenuView: Bool = false
+	
+	private var periodName: String {
+		var calendar = Calendar.current
+		calendar.locale = Locale(identifier: "en_US_POSIX")
+		
+		return "\(currentPeriod.monthSymbol(using: calendar).capitalized) \(Calendar.current.component(.year, from: currentPeriod))"
+	}
 	
 	var body: some View {
 		VStack(spacing: 10) {
-				/*Spacer().fullScreenCover(isPresented: $showSettingsModal){}
-			content: {SettingsModal(showSettingsModal: $showSettingsModal)}
-				
-				Spacer().fullScreenCover(isPresented: $showMenuModal){}
-			content: {MenuModal(showMenuModal: $showMenuModal)}
-				*/
 			HStack(spacing: 0) {
 				Button(action: {
-					showSettingsModal.toggle()
+					showSettingsView = true
 				}, label: {
 					Image("gear")
 				})
@@ -39,7 +42,7 @@ struct HeaderView: View {
 				Spacer()
 				
 				Button(action: {
-					showMenuModal.toggle()
+					showMenuView = true
 				}, label: {
 					Image("menu")
 				})
@@ -52,22 +55,22 @@ struct HeaderView: View {
 				Spacer()
 				
 				Button(action: {
-					//matchesViewModel.changeWeek(delta: -1)
+					currentPeriod = currentPeriod.adding(.month, value: -1)
 				}, label: {
 					Image("left")
 				})
 				
 				Button(action: {
-					//matchesViewModel.changeWeek(delta: 0)
+					currentPeriod = Date()
 				}, label: {
-					Text("September")
+					Text("\(periodName)")
 						.font(AppFont.body)
 						.foregroundColor(.white)
 				})
-				.frame(width: 130)
+				.frame(width: 200)
 				
 				Button(action: {
-					//matchesViewModel.changeWeek(delta: 1)
+					currentPeriod = currentPeriod.adding(.month, value: 1)
 				}, label: {
 					Image("right")
 				})
@@ -78,8 +81,14 @@ struct HeaderView: View {
 			Divider()
 				.frame(height: 1)
 				.background(.dullBlue)
-				//.padding(.top, 5)
 		}
+		.fullScreenCover(isPresented: $showSettingsView) {
+			SettingsView()
+		}
+		.fullScreenCover(isPresented: $showMenuView) {
+			MenuView()
+		}
+		
 	}
 }
 
