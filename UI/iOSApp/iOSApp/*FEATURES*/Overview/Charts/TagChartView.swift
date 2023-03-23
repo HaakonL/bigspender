@@ -16,7 +16,7 @@ struct TagChartView: View {
 	
     var body: some View {
 		Group {
-			Text("Spendings in \(globalViewModel.month) by tag")
+			Text("\(globalViewModel.monthAndYear.capitalized) by tag")
 				.font(AppFont.body)
 				.foregroundColor(.lightBlue)
 				.padding(.bottom, 20)

@@ -16,7 +16,7 @@ struct ForecastChartView: View {
 	
     var body: some View {
 		Group {
-			Text("\(globalViewModel.month.capitalized) forecast")
+			Text("\(globalViewModel.monthAndYear.capitalized) forecast")
 				.font(AppFont.body)
 				.foregroundColor(.lightBlue)
 				.padding(.bottom, 20)

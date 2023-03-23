@@ -49,7 +49,7 @@ struct TagsView: View {
 							Text("\(tag.title)")
 								.padding(.horizontal, 8)
 								.padding(.vertical, 3)
-								.background(viewModel.selectedTag == tag ? .lightBlue : .mediumBlue)
+								.background(viewModel.selectedTag == tag ? .lightBlue : .slayBlue)
 								.cornerRadius(5)
 								.foregroundColor(viewModel.selectedTag == tag ? .darkBlue : .lightBlue)
 								.font(AppFont.body)
@@ -68,7 +68,11 @@ struct TagsView: View {
 					TextField("", text: $newCategoryText, prompt: prompt)
 						.padding(.horizontal, 20)
 						.padding(.vertical, 10)
-						.background(RoundedRectangle(cornerRadius: 10).fill(.mediumBlue))
+						.background(RoundedRectangle(cornerRadius: 10).fill(.slayBlue))
+						.overlay(
+							RoundedRectangle(cornerRadius: 10)
+								.stroke(.regularBlue, lineWidth: 1)
+						)
 					
 					Button {
 						Task {
@@ -84,10 +88,10 @@ struct TagsView: View {
 						Text("Add")
 							.padding(.vertical, 3)
 					}
-					.font(AppFont.bodyBold)
+					.font(AppFont.body)
 					.buttonStyle(.borderedProminent)
-					.accentColor(.mediumBlue)
-					.foregroundColor(.regularOrange)
+					.accentColor(.regularBlue)
+					.foregroundColor(.white)
 				}
 				
 				Spacer()

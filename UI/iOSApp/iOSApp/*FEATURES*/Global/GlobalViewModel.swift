@@ -8,7 +8,7 @@
 import Foundation
 
 public class GlobalViewModel: ObservableObject {
-	@Published public var currentPeriod: Date = Date()
+	@Published public private(set) var currentPeriod: Date = Date()
 	
 	private var calendar: Calendar = Calendar.current
 	

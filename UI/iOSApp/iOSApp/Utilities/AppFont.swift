@@ -28,7 +28,7 @@ class InterFont {
 class AppFont {
 
 	public static var appLogoType: Font {
-		return .system(size: 40, weight: .bold, design: .rounded)
+		return .system(size: 22, weight: .bold, design: .rounded)
 	}
 	
 	public static var largeTitle: Font {
@@ -77,6 +77,10 @@ class AppFont {
 	
 	public static var footnote: Font {
 		return Font.custom(InterFont.regular, size: 12)
+	}
+	
+	public static var dirteen: Font {
+		return Font.custom(InterFont.regular, size: 13)
 	}
 	
 	public static var body: Font {

@@ -27,7 +27,7 @@ struct HeaderView: View {
 				
 				FidgetTextView("Big Spender",
 							   font: AppFont.appLogoType,
-							   fontSize: 28,
+							   fontSize: 22,
 							   dist0Color: Color.regularOrange,
 							   dist1Color: Color.lightOrange,
 							   defaultColor: Color.lightBlue
@@ -44,6 +44,7 @@ struct HeaderView: View {
 			}
 			.padding(.horizontal, 20)
 			
+			/*
 			HStack(spacing: 0) {
 				
 				Spacer()
@@ -71,6 +72,7 @@ struct HeaderView: View {
 				
 				Spacer()
 			}
+			*/
 			
 			Divider()
 				.frame(height: 1)

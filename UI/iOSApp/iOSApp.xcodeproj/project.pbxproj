@@ -17,6 +17,10 @@
 		F85DAEEF29C6F676009AA73F /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEE29C6F676009AA73F /* SettingsView.swift */; };
 		F85DAEF129C6F695009AA73F /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF029C6F695009AA73F /* MenuView.swift */; };
 		F85DAEF329C6FC68009AA73F /* GlobalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF229C6FC68009AA73F /* GlobalViewModel.swift */; };
+		F85DAEF629CA3D55009AA73F /* PeriodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF529CA3D55009AA73F /* PeriodView.swift */; };
+		F85DAEF829CA3D5D009AA73F /* PeriodViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEF729CA3D5D009AA73F /* PeriodViewModel.swift */; };
+		F85DAEFC29CB6735009AA73F /* PresentationDetentExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEFB29CB6735009AA73F /* PresentationDetentExtensions.swift */; };
+		F85DAEFE29CC5850009AA73F /* BudgetProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEFD29CC5850009AA73F /* BudgetProgressView.swift */; };
 		F8704AAB29B38ABA00063653 /* AppFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8704AAA29B38ABA00063653 /* AppFont.swift */; };
 		F8704ABF29B38C2700063653 /* Inter-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8704AAD29B38C2700063653 /* Inter-BoldItalic.ttf */; };
 		F8704AC029B38C2700063653 /* Inter-Light-BETA.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F8704AAE29B38C2700063653 /* Inter-Light-BETA.ttf */; };
@@ -111,6 +115,10 @@
 		F85DAEEE29C6F676009AA73F /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F85DAEF029C6F695009AA73F /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		F85DAEF229C6FC68009AA73F /* GlobalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalViewModel.swift; sourceTree = "<group>"; };
+		F85DAEF529CA3D55009AA73F /* PeriodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodView.swift; sourceTree = "<group>"; };
+		F85DAEF729CA3D5D009AA73F /* PeriodViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodViewModel.swift; sourceTree = "<group>"; };
+		F85DAEFB29CB6735009AA73F /* PresentationDetentExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationDetentExtensions.swift; sourceTree = "<group>"; };
+		F85DAEFD29CC5850009AA73F /* BudgetProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetProgressView.swift; sourceTree = "<group>"; };
 		F8704AAA29B38ABA00063653 /* AppFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFont.swift; sourceTree = "<group>"; };
 		F8704AAD29B38C2700063653 /* Inter-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.ttf"; sourceTree = "<group>"; };
 		F8704AAE29B38C2700063653 /* Inter-Light-BETA.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Light-BETA.ttf"; sourceTree = "<group>"; };
@@ -197,6 +205,7 @@
 			children = (
 				F8E32D1729B632BC00D8C4B9 /* Global */,
 				F858F7E829990A3900EDC251 /* Overview */,
+				F85DAEF429CA3D43009AA73F /* Period */,
 				F8C1BDFD29B9BE190095BEAA /* Purchase */,
 			);
 			path = "*FEATURES*";
@@ -231,6 +240,15 @@
 				F85DAEEA29C4527E009AA73F /* TagsViewModel.swift */,
 			);
 			path = Tags;
+			sourceTree = "<group>";
+		};
+		F85DAEF429CA3D43009AA73F /* Period */ = {
+			isa = PBXGroup;
+			children = (
+				F85DAEF529CA3D55009AA73F /* PeriodView.swift */,
+				F85DAEF729CA3D5D009AA73F /* PeriodViewModel.swift */,
+			);
+			path = Period;
 			sourceTree = "<group>";
 		};
 		F8704AAC29B38C0500063653 /* Fonts */ = {
@@ -351,6 +369,7 @@
 				F8704ADA29B49C3900063653 /* DateExtensions.swift */,
 				F8C1BE0529BB07FF0095BEAA /* StringExtensions.swift */,
 				F85DAEEC29C473FB009AA73F /* NotificationExtensions.swift */,
+				F85DAEFB29CB6735009AA73F /* PresentationDetentExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -398,6 +417,7 @@
 				F8E32D2C29B711A000D8C4B9 /* AddPurchaseButton.swift */,
 				F8E32D2A29B7109100D8C4B9 /* InfoBoxesView.swift */,
 				F8E32D2E29B7127F00D8C4B9 /* TextualStatusView.swift */,
+				F85DAEFD29CC5850009AA73F /* BudgetProgressView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -558,7 +578,9 @@
 				F8E32D3129B714C000D8C4B9 /* ForecastChartView.swift in Sources */,
 				F8E32D2D29B711A000D8C4B9 /* AddPurchaseButton.swift in Sources */,
 				F8E32D3529B7164800D8C4B9 /* TagChartView.swift in Sources */,
+				F85DAEF829CA3D5D009AA73F /* PeriodViewModel.swift in Sources */,
 				F8E32D2229B7087F00D8C4B9 /* PieChartView.swift in Sources */,
+				F85DAEFC29CB6735009AA73F /* PresentationDetentExtensions.swift in Sources */,
 				F8E32D1C29B6398F00D8C4B9 /* PeriodNavigator.swift in Sources */,
 				F8C1BE0329BA38620095BEAA /* HapticManager.swift in Sources */,
 				F8704AD429B3904300063653 /* FontWithLineHeight.swift in Sources */,
@@ -567,6 +589,7 @@
 				F8704ADD29B4A01300063653 /* ChartData.swift in Sources */,
 				F858F7EA29990A5500EDC251 /* OverviewViewModel.swift in Sources */,
 				F8E32D2929B7106100D8C4B9 /* AddPurchaseView.swift in Sources */,
+				F85DAEF629CA3D55009AA73F /* PeriodView.swift in Sources */,
 				F8886276298712730000B0E9 /* RootView.swift in Sources */,
 				F85DAEF329C6FC68009AA73F /* GlobalViewModel.swift in Sources */,
 				F8704AD729B4770D00063653 /* ColorExtensions.swift in Sources */,
@@ -580,6 +603,7 @@
 				F8886274298712730000B0E9 /* Main.swift in Sources */,
 				F8E32D1329B54A2000D8C4B9 /* TagsView.swift in Sources */,
 				F8E32D2029B7082E00D8C4B9 /* SectorShape.swift in Sources */,
+				F85DAEFE29CC5850009AA73F /* BudgetProgressView.swift in Sources */,
 				F85DAEF129C6F695009AA73F /* MenuView.swift in Sources */,
 				F858F7EC29990A6300EDC251 /* OverviewView.swift in Sources */,
 				F85DAEEF29C6F676009AA73F /* SettingsView.swift in Sources */,

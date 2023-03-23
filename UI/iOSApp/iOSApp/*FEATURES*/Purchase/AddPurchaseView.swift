@@ -20,86 +20,118 @@ struct AddPurchaseView: View {
 	@State private var selectedCategory: Tag?
 	@State private var descriptionError: Bool = false
 	@State private var amountError: Bool = false
+	@State private var showDatePicker: Bool = false
+	
+	private var maxDescriptionLength = 35
+	
+	var purchaseDateDescription: String {
+		if Calendar.current.isDateInToday(purchaseDate) {
+			return "Today"
+		} else if Calendar.current.isDateInYesterday(purchaseDate) {
+			return "Yesterday"
+		} else {
+			return purchaseDate.formatted(date: .abbreviated, time: .omitted)
+		}
+	}
 	
 	var body: some View {
 		ZStack {
-			Color.darkBlue.ignoresSafeArea()
+			Color.mediumBlue.ignoresSafeArea()
 
-			VStack(spacing: 20) {
-				Text("Add purchase")
-					.font(AppFont.title)
-					.foregroundColor(.white)
-				
-				let descriptionPrompt: Text = Text("Description, ie. Foo Bar")
-					.font(AppFont.body)
-					.foregroundColor(.placeholderWhite)
-				
-				TextField("", text: $description, prompt: descriptionPrompt)
-					.textFieldStyle(.plain)
-					.padding(15)
-					.accentColor(.regularOrange)
-					.background(.mediumBlue)
-					.foregroundColor(.white)
-					.cornerRadius(10)
-					.shadow(color: .dropShadow, radius: 4, x: 4, y: 4)
-					.onChange(of: description) { newDescription in
-						if !newDescription.isEmpty {
-							descriptionError = false
-						}
-					}
-					.overlay(
-						RoundedRectangle(cornerRadius: 10)
-							.stroke(.red, lineWidth: descriptionError ? 2 : 0)
-					)
-				
-				let amountPrompt: Text = Text("Amount spent")
-					.font(AppFont.body)
-					.foregroundColor(.placeholderWhite)
-				
-				TextField("", text: $amount, prompt: amountPrompt)
-					.keyboardType(.numberPad)
-					.textFieldStyle(.plain)
-					.padding(15)
-					.accentColor(.regularOrange)
-					.background(.mediumBlue)
-					.foregroundColor(.white)
-					.cornerRadius(10)
-					.shadow(color: .dropShadow, radius: 4, x: 4, y: 4)
-					.onChange(of: amount) { newAmount in
-						let filtered = newAmount.filter { "0123456789".contains($0) }
-						if filtered != newAmount {
-							self.amount = filtered
-						}
-						self.amount = self.amount.removePrefix("0")
-						if !amount.isEmpty {
-							amountError = false
-						}
-					}
-					.overlay(
-						RoundedRectangle(cornerRadius: 10)
-							.stroke(.red, lineWidth: amountError ? 2 : 0)
-					)
-				
-				DatePicker(selection: $purchaseDate, displayedComponents: .date) {
-					Text("Purchase date")
-						.font(AppFont.body)
-						.foregroundColor(.placeholderWhite)
+			VStack {
+				HStack {
+					RoundedRectangle(cornerRadius: 2)
+						.frame(width: 40, height: 3)
+						.foregroundColor(.regularBlue)
 				}
-					.datePickerStyle(.compact)
-					.colorScheme(.dark)
-					.font(AppFont.body)
-					.padding(.horizontal, 15)
-					.padding(.vertical, 10)
-					.accentColor(.lightBlue)
-					.background(.mediumBlue)
-					.foregroundColor(.placeholderWhite)
-					.clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+				.padding(.bottom, 20)
+				
+				Text("What did you buy? 💸")
+					.font(AppFont.mediumTitle)
+					.foregroundColor(.white)
+				
+				VStack(alignment: .leading) {
+					HStack(spacing: 0) {
+						Text("Describe your purchase")
+							.font(AppFont.smallTitle)
+							.foregroundColor(.white)
+						
+						Spacer()
+						
+						Button {
+							showDatePicker = true
+						} label: {
+							Text(purchaseDateDescription)
+								.font(AppFont.dirteen)
+								.foregroundColor(.lightBlue)
+								.offset(x: 3)
+							
+							Image(systemName: "pencil")
+								.font(AppFont.dirteen)
+								.foregroundColor(.lightBlue)
+						}
+						.offset(y: 1)
+					}
+					
+					TextField("", text: $description)
+						.textFieldStyle(.plain)
+						.padding(.vertical, 10)
+						.padding(.horizontal, 20)
+						.accentColor(.lightBlue)
+						.background(.slayBlue)
+						.foregroundColor(.white)
+						.cornerRadius(10)
+						.onChange(of: description) { newDescription in
+							self.description = newDescription.prefix(maxDescriptionLength).description
+							if !description.isEmpty {
+								descriptionError = false
+							}
+						}
+						.overlay(
+							RoundedRectangle(cornerRadius: 10)
+								.stroke(descriptionError ? .red : .regularBlue, lineWidth: descriptionError ? 2 : 1)
+						)
+					HStack {
+						Spacer()
+						Text("\(description.count)/\(maxDescriptionLength)")
+							.font(AppFont.smallText)
+							.foregroundColor(.white)
+					}
+					
+					Text("How much did it cost?")
+						.font(AppFont.smallTitle)
+						.foregroundColor(.white)
+						.padding(.top, 0)
+					
+					TextField("", text: $amount)
+						.keyboardType(.numberPad)
+						.textFieldStyle(.plain)
+						.padding(.vertical, 10)
+						.padding(.horizontal, 20)
+						.accentColor(.lightBlue)
+						.background(.slayBlue)
+						.foregroundColor(.white)
+						.cornerRadius(10)
+						.onChange(of: amount) { newAmount in
+							let filtered = newAmount.filter { "0123456789".contains($0) }
+							if filtered != newAmount {
+								self.amount = filtered
+							}
+							self.amount = self.amount.removePrefix("0")
+							if !amount.isEmpty {
+								amountError = false
+							}
+						}
+						.overlay(
+							RoundedRectangle(cornerRadius: 10)
+								.stroke(amountError ? .red : .regularBlue, lineWidth: amountError ? 2 : 1)
+						)
+				}
+				.padding(.top, 20)
 				
 				TagsView(tagWasTapped: { tapped in
 					selectedCategory = tapped
 				})
-				
-				Spacer()
 				
 				Button {
 					descriptionError = false
@@ -120,24 +152,55 @@ struct AddPurchaseView: View {
 						}
 					}
 				} label: {
-					Text("Save")
-						.font(AppFont.subtitleBold)
-						.padding(.horizontal, 50)
+					Text("Add purchase")
+						.font(AppFont.mediumTitle)
+						.foregroundColor(.slayBlue)
 						.padding(.vertical, 10)
+						.frame(maxWidth: .infinity)
 				}
 				.buttonStyle(.borderedProminent)
-				.accentColor(.regularBlue)
-
-				Spacer()
+				.accentColor(.regularOrange)
+				.cornerRadius(100)
+				.padding(.top, 10)
 				
-				Button {
-					dismiss()
-				} label: {
-					Text("Dismiss")
-				}
-				.tint(.regularOrange)
+				Spacer()
 			}
 			.padding()
+		}
+		.sheet(isPresented: $showDatePicker) {
+			ZStack {
+				Color.mediumBlue.ignoresSafeArea()
+				
+				VStack {
+					DatePicker(selection: $purchaseDate, in: ...Date(), displayedComponents: .date) {
+					}
+					.datePickerStyle(.graphical)
+					.colorScheme(.dark)
+					.font(AppFont.body)
+					.padding(.top, 20)
+					.accentColor(.lightBlue)
+					.background(.mediumBlue)
+					.foregroundColor(.placeholderWhite)
+					
+					Button {
+						showDatePicker = false
+					} label: {
+						Text("Use this date")
+							.font(AppFont.mediumTitle)
+							.foregroundColor(.slayBlue)
+							.padding(.vertical, 10)
+							.frame(maxWidth: .infinity)
+					}
+					.buttonStyle(.borderedProminent)
+					.accentColor(.lightBlue)
+					.cornerRadius(100)
+					.padding(.top, 10)
+				}
+				.presentationDetents([.medium])
+				.presentationDragIndicator(.hidden)
+				.padding(.horizontal, 20)
+				.foregroundColor(.white)
+			}
 		}
 	}
 }

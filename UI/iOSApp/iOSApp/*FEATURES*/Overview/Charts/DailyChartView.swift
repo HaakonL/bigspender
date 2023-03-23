@@ -15,7 +15,7 @@ struct DailyChartView: View {
 	
     var body: some View {
 		Group {
-			Text("Spendings in \(globalViewModel.month) per day")
+			Text("\(globalViewModel.monthAndYear.capitalized) per day")
 				.font(AppFont.body)
 				.foregroundColor(.lightBlue)
 				.padding(.bottom, 20)

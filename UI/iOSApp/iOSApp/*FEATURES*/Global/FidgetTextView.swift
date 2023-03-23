@@ -74,7 +74,6 @@ extension FidgetTextView {
 				let dragPosition = value.location // current drag position
 				if let index = self.calculateSelectedIndex(for: dragPosition) {
 					if index != selectedIndex {
-						print("Index :", index)
 						// light haptic feedback when focused index changes
 						HapticManager.shared.generateFeedback()
 						// update selected index and scale factors

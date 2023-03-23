@@ -23,8 +23,8 @@ extension PurchaseRepository {
 		switch result {
 			case .success(let objects):
 				let entries = objects.filter {
-					$0.when >= period.periodStart &&
-					$0.when <= period.periodEnd
+					$0.when >= period.start &&
+					$0.when <= period.end
 				}
 				return .success(entries.compactMap {$0.toDomainObject() as? Purchase})
 			case .failure(let error):

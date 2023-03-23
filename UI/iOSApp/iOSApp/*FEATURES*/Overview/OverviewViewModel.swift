@@ -13,20 +13,6 @@ public class OverviewViewModel: ObservableObject {
 	@Injected private var periodService: PeriodServiceProtocol	
 	@Published public private(set) var currentPeriod: Period?
 	
-	/*init() {
-		NotificationCenter.default.addObserver(self, selector: #selector(purchaseWasAdded), name: .addPurchase, object: nil)
-	}
-	
-	deinit {
-		NotificationCenter.default.removeObserver(self)
-	}
-	
-	@objc private func purchaseWasAdded() {
-		Task {
-			await loadPeriod()
-		}
-	}*/
-	
 	public func loadPeriod() async {
 		if let period = await periodService.getPeriod(by: Date()) {
 			DispatchQueue.main.async {

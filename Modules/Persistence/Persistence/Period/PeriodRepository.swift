@@ -23,8 +23,8 @@ extension PeriodRepository {
 		switch result {
 			case .success(let objects):
 				let entries = objects.filter {
-					$0.periodStart >= date.adding(.month, value: -1).adding(.day, value: 1).start() &&
-					$0.periodEnd <= date.adding(.month, value: 1).adding(.day, value: -1).end()
+					$0.start >= date.adding(.month, value: -1).adding(.day, value: 1).start() &&
+					$0.end <= date.adding(.month, value: 1).adding(.day, value: -1).end()
 				}
 				return .success(entries.first?.toDomainObject() as? Period)
 			case .failure(let error):
