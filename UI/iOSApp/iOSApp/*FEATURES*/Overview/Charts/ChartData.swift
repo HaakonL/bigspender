@@ -7,7 +7,11 @@
 
 import Foundation
 
-public class ChartData {
+public class ChartData: Equatable {
+	public static func == (lhs: ChartData, rhs: ChartData) -> Bool {
+		lhs.day == rhs.day && lhs.spendings == rhs.spendings
+	}
+	
 	var day: Date
 	var spendings: Int
 	var budgeted: Int

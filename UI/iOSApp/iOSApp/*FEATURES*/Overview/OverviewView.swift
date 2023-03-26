@@ -60,18 +60,40 @@ struct AddSomethingButton: View {
 struct OverviewView: View {
 	@ObservedObject private var viewModel: OverviewViewModel = Resolver.resolve()
 	@State private var showAddPurchase = false
+	@State private var showProgress = true
 	
-    var body: some View {
+	var body: some View {
 		ZStack {
+			Color.blueThemeBg.ignoresSafeArea()
+			
+			VStack {
+				Spacer()
+				Rectangle()
+					.fill(.blueThemeBlue)
+					.frame(height: 180)
+			}
+			
+			VStack {
+				Image("woman")
+					.resizable()
+					.scaledToFit()
+				
+				Spacer()
+			}
+			
 			VStack(spacing: 0) {
+
+				HeaderView()
+				
 				ScrollView(.vertical, showsIndicators: false) {
 					
-					Spacer().frame(height: 15)
-					
 					BudgetProgressView()
-					
-					MainChartView(overviewViewModel: viewModel)
+						.padding(.horizontal, 20)
 						.padding(.top, 15)
+					
+					/*MainChartView(overviewViewModel: viewModel)
+						.padding(.top, 15)
+						.padding(.horizontal, 20)*/
 					
 					HStack(spacing: 0) {
 						AddSomethingButton(title: "Purchase") {
@@ -80,7 +102,7 @@ struct OverviewView: View {
 						
 						Spacer()
 						
-						AddSomethingButton(title: "Category") {
+						AddSomethingButton(title: "Tag") {
 							
 						}
 						
@@ -96,41 +118,40 @@ struct OverviewView: View {
 							
 						}
 					}
-					.padding(.top, 20)
+					.padding([.top, .horizontal], 20)
 					
+					/*
 					TextualStatusView(averageSpent: 275, averageToSpend: 613)
 						.padding(.top, 10)
+						.padding(.horizontal, 20)
 					
 					InfoBoxesView()
 						.padding(.top, 10)
-					
-					/*TagsView(tagWasTapped: nil)
-						.padding(.top, 10)*/
+						.padding(.horizontal, 20)*/
 					
 					Spacer()
 				}
+				
+				BottomChart()
 			}
-			.padding(.horizontal)
-		}
-		.task {
-			await viewModel.loadPeriod()
-		}
-		.overlay {
-			Rectangle()
-				.ignoresSafeArea()
-				.foregroundColor(.black)
-				.opacity(showAddPurchase ? 0.5 : 0)
-				.animation(.easeIn(duration: 0.2), value: showAddPurchase)
-		}
-		.sheet(isPresented: $showAddPurchase) {
-			AddPurchaseView()
-				.presentationDetents([.extraLarge, .large])
-				.presentationDragIndicator(.hidden)
+			.task {
+				await viewModel.loadPeriod()
+			}
+			.overlay {
+				Rectangle()
+					.ignoresSafeArea()
+					.foregroundColor(.black)
+					.opacity(showAddPurchase ? 0.5 : 0)
+					.animation(.easeIn(duration: 0.2), value: showAddPurchase)
+			}
+			.sheet(isPresented: $showAddPurchase) {
+				AddPurchaseView()
+			}
 		}
 	}
 }
 
-struct SpendingView_Previews: PreviewProvider {
+struct OverviewView_Previews: PreviewProvider {
     static var previews: some View {
 		ZStack {
 			Color.darkBlue.ignoresSafeArea()

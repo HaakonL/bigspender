@@ -11,15 +11,7 @@ import Resolver
 
 struct RootView: View {
     var body: some View {
-		ZStack {
-			Color.darkBlue.ignoresSafeArea()
-			
-			VStack(spacing: 0) {
-				HeaderView()
-				OverviewView()
-			}
-		}
-		.colorScheme(.dark)
+		OverviewView()
     }
 }
 

@@ -14,77 +14,44 @@ struct HeaderView: View {
 	@State private var showMenuView: Bool = false
 	
 	var body: some View {
-		VStack(spacing: 10) {
-			HStack(spacing: 0) {
-				Button(action: {
-					showSettingsView = true
-				}, label: {
-					Image("gear")
-				})
-				.padding(.top, -2)
+		ZStack {
+			Color.appPrimary.ignoresSafeArea()
+			VStack(spacing: 10) {
+				HStack(spacing: 0) {
+					Button(action: {
+						showSettingsView = true
+					}, label: {
+						Image("gear")
+					})
+					.padding(.top, -2)
+					
+					Spacer()
+					
+					// CONTENT
+					
+					Spacer()
+					
+					Button(action: {
+						showMenuView = true
+					}, label: {
+						Image("menu")
+					})
+					.padding(.top, -2)
+				}
+				.padding(.horizontal, 20)
 				
-				Spacer()
-				
-				FidgetTextView("Big Spender",
-							   font: AppFont.appLogoType,
-							   fontSize: 22,
-							   dist0Color: Color.regularOrange,
-							   dist1Color: Color.lightOrange,
-							   defaultColor: Color.lightBlue
-				)
-								
-				Spacer()
-				
-				Button(action: {
-					showMenuView = true
-				}, label: {
-					Image("menu")
-				})
-				.padding(.top, -2)
+				Divider()
+					.frame(height: 1)
+					.background(.secondary)
 			}
-			.padding(.horizontal, 20)
-			
-			/*
-			HStack(spacing: 0) {
-				
-				Spacer()
-				
-				Button(action: {
-					globalViewModel.previousPeriod()
-				}, label: {
-					Image("left")
-				})
-				
-				Button(action: {
-					globalViewModel.resetPeriod()
-				}, label: {
-					Text("\(globalViewModel.monthAndYear.capitalized)")
-						.font(AppFont.body)
-						.foregroundColor(.white)
-				})
-				.frame(width: 200)
-				
-				Button(action: {
-					globalViewModel.nextPeriod()
-				}, label: {
-					Image("right")
-				})
-				
-				Spacer()
+			.fullScreenCover(isPresented: $showSettingsView) {
+				SettingsView()
 			}
-			*/
-			
-			Divider()
-				.frame(height: 1)
-				.background(.dullBlue)
+			.fullScreenCover(isPresented: $showMenuView) {
+				MenuView()
+			}
 		}
-		.fullScreenCover(isPresented: $showSettingsView) {
-			SettingsView()
-		}
-		.fullScreenCover(isPresented: $showMenuView) {
-			MenuView()
-		}
-		
+		.frame(height: 30)
 	}
 }
 

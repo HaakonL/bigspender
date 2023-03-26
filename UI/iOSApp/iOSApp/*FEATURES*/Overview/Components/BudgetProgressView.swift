@@ -11,8 +11,9 @@ struct BudgetProgressView: View {
 	var body: some View {
 		ZStack {
 			RoundedRectangle(cornerRadius: 8)
-				.foregroundColor(.mediumBlue)
+				.fill(.blueThemeBlue)
 				.shadow(color: .dropShadow, radius: 4, x: 0, y: 4)
+				.opacity(0.85)
 			
 			HStack(spacing: 20) {
 				VStack(alignment: .leading, spacing: 0) {
