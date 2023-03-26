@@ -130,7 +130,7 @@ struct OverviewView: View {
 	}
 }
 
-struct SpendingView_Previews: PreviewProvider {
+struct OverviewView_Previews: PreviewProvider {
     static var previews: some View {
 		ZStack {
 			Color.darkBlue.ignoresSafeArea()
