@@ -10,6 +10,7 @@
 		F816558E29BC7E020050A453 /* Bootstrap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F816558D29BC7E020050A453 /* Bootstrap.framework */; };
 		F816558F29BC7E020050A453 /* Bootstrap.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F816558D29BC7E020050A453 /* Bootstrap.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F81655B829C2FD380050A453 /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81655B729C2FD380050A453 /* Budget.swift */; };
+		F82C934129D95C9400C94310 /* BottomChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82C934029D95C9400C94310 /* BottomChart.swift */; };
 		F858F7EA29990A5500EDC251 /* OverviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F7E929990A5500EDC251 /* OverviewViewModel.swift */; };
 		F858F7EC29990A6300EDC251 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F858F7EB29990A6300EDC251 /* OverviewView.swift */; };
 		F85DAEEB29C4527E009AA73F /* TagsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85DAEEA29C4527E009AA73F /* TagsViewModel.swift */; };
@@ -107,6 +108,7 @@
 /* Begin PBXFileReference section */
 		F816558D29BC7E020050A453 /* Bootstrap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bootstrap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81655B729C2FD380050A453 /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
+		F82C934029D95C9400C94310 /* BottomChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomChart.swift; sourceTree = "<group>"; };
 		F858F79129944E2D00EDC251 /* iOSApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOSApp.entitlements; sourceTree = "<group>"; };
 		F858F7E929990A5500EDC251 /* OverviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewViewModel.swift; sourceTree = "<group>"; };
 		F858F7EB29990A6300EDC251 /* OverviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				F8E32D3429B7164800D8C4B9 /* TagChartView.swift */,
 				F8704ADC29B4A01300063653 /* ChartData.swift */,
 				F81655B729C2FD380050A453 /* Budget.swift */,
+				F82C934029D95C9400C94310 /* BottomChart.swift */,
 			);
 			path = Charts;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				F8E32D3129B714C000D8C4B9 /* ForecastChartView.swift in Sources */,
 				F8E32D2D29B711A000D8C4B9 /* AddPurchaseButton.swift in Sources */,
 				F8E32D3529B7164800D8C4B9 /* TagChartView.swift in Sources */,
+				F82C934129D95C9400C94310 /* BottomChart.swift in Sources */,
 				F85DAEF829CA3D5D009AA73F /* PeriodViewModel.swift in Sources */,
 				F8E32D2229B7087F00D8C4B9 /* PieChartView.swift in Sources */,
 				F85DAEFC29CB6735009AA73F /* PresentationDetentExtensions.swift in Sources */,

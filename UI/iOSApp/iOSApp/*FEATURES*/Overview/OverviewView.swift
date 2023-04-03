@@ -70,8 +70,8 @@ struct OverviewView: View {
 					
 					BudgetProgressView()
 					
-					MainChartView(overviewViewModel: viewModel)
-						.padding(.top, 15)
+					/*MainChartView(overviewViewModel: viewModel)
+						.padding(.top, 15)*/
 					
 					HStack(spacing: 0) {
 						AddSomethingButton(title: "Purchase") {
@@ -108,6 +108,8 @@ struct OverviewView: View {
 						.padding(.top, 10)*/
 					
 					Spacer()
+					
+					BottomChart()
 				}
 			}
 			.padding(.horizontal)
